@@ -1,0 +1,5 @@
+package com.example.microservices.employee.repository;
+
+public class EmployeeRepository {
+
+}
