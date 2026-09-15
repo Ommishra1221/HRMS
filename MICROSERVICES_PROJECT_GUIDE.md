@@ -15,9 +15,10 @@
 | API Gateway | `api-gateway` (:8080) | — |
 | Employee Service | `employee-service` (:8081) | `employee_db` |
 | Leave Service | `leave-service` (:8082) | `leave_db` |
+| Attendance Service | `attendance-service` (:8083) | `attendance_db` |
 | Discovery Server (Eureka) | `discovery-server` (:8761) | — |
 
-**Golden Rule:** React talks only to the Gateway (8080). The Gateway talks to the services (8081/8082). Leave Service talks to Employee Service (via OpenFeign). No service ever touches another service's database.
+**Golden Rule:** React talks only to the Gateway (8080). The Gateway talks to the services (8081/8082/8083). Leave Service and Attendance Service talk to Employee Service (via OpenFeign). No service ever touches another service's database.
 
 ---
 
@@ -34,24 +35,25 @@ Architecture means: which pieces make up the system, and who talks to whom.
                             |  HTTP  (only ONE address: localhost:8080)
                             v
                     API Gateway (localhost:8080)
-                       |              |
-         lb://employee-service   lb://leave-service
-             (StripPrefix=1)         (StripPrefix=1)
-                       |              |
-                       v              v
-    EMPLOYEE SERVICE (:8081) <---- OpenFeign ---- LEAVE SERVICE (:8082)
-        |         ^          (looks up by name via Eureka)
-        |         |                      |
-   employee_db   |                  leave_db
-  (employees)    |                (leaves)
-                 |
-        DISCOVERY SERVER (:8761) — every service registers here
+                 |             |                |
+     lb://employee-service  lb://leave-service  lb://attendance-service
+         (StripPrefix=1)       (StripPrefix=1)      (StripPrefix=1)
+                 |             |                |
+                 v             v                v
+   LEAVE SERVICE (:8082) --- OpenFeign ---> EMPLOYEE SERVICE (:8081) <--- OpenFeign --- ATTENDANCE SERVICE (:8083)
+        |               (looks up by name via Eureka)      ^                              |
+        |                                                  |                              |
+   leave_db                                           employee_db                    attendance_db
+   (leaves)                                          (employees)                    (attendance)
+                                                       |
+                                            DISCOVERY SERVER (:8761) — every service registers here
 ```
 
 ### WHERE (in this project)
 - `hrms-frontend/src/api/axiosInstance.js` → baseURL = `VITE_API_BASE_URL` = `http://localhost:8080` (the gateway)
-- `api-gateway/src/main/resources/application.properties` → routes `lb://employee-service`, `lb://leave-service`
+- `api-gateway/src/main/resources/application.properties` → routes `lb://employee-service`, `lb://leave-service`, `lb://attendance-service`
 - `leave-service/.../client/EmployeeClient.java` → `@FeignClient(name = "employee-service")`
+- `attendance-service/.../client/EmployeeClient.java` → the same pattern, its own copy (attendance also needs employee data)
 
 ### One-line summary to remember
 **"The frontend knows only one door (the Gateway). The Gateway finds services by name (via Eureka). Services talk to each other over Feign. Every service owns its own database."**
@@ -75,7 +77,8 @@ Technical benefits:
 ### WHERE (in this project)
 - `employee-service/` → only employee logic: `EmployeeController`, `EmployeeServiceImpl`, `EmployeeRepository`, the `Employee` entity, `employee_db`
 - `leave-service/` → only leave logic: `LeaveController`, `LeaveServiceImpl`, `LeaveRepository`, the `Leave` entity, `leave_db`
-- Each has its own `application.properties` and its own `server.port` (8081 vs 8082)
+- `attendance-service/` → only attendance logic: `AttendanceController`, `AttendanceServiceImpl`, `AttendanceRepository`, the `Attendance` entity, `attendance_db`
+- Each has its own `application.properties` and its own `server.port` (8081 / 8082 / 8083)
 
 ### ❌ A common wrong assumption
 "Employees and leaves are related, so why not keep them in one project?" → Being *related* and being *owned* are different things. We connect the relation **at runtime over HTTP** (we'll see this in Section 6).
@@ -97,7 +100,9 @@ Every microservice owns a **private database**. No other service may connect to 
   `spring.datasource.url=jdbc:postgresql://localhost:5432/employee_db`
 - `leave-service/application.properties`:
   `spring.datasource.url=jdbc:postgresql://localhost:5432/leave_db`
-- Two separate PostgreSQL databases were created: `CREATE DATABASE employee_db; CREATE DATABASE leave_db;`
+- `attendance-service/application.properties`:
+  `spring.datasource.url=jdbc:postgresql://localhost:5432/attendance_db`
+- Three separate PostgreSQL databases were created: `CREATE DATABASE employee_db; CREATE DATABASE leave_db; CREATE DATABASE attendance_db;`
 
 ### The most important detail — what the `Leave` entity does NOT have
 ```java
@@ -105,7 +110,7 @@ Every microservice owns a **private database**. No other service may connect to 
 @Column(name = "employee_id", nullable = false)
 private Long employeeId;   // just a NUMBER — it is NOT @ManyToOne!
 ```
-There is **no foreign key constraint** referencing the `employees` table, because PostgreSQL **cannot enforce FKs across two separate databases**. So who enforces the link? **Our code** — when creating a leave, `LeaveServiceImpl` checks the employee's existence over HTTP (Section 6).
+There is **no foreign key constraint** referencing the `employees` table, because PostgreSQL **cannot enforce FKs across two separate databases**. So who enforces the link? **Our code** — when creating a leave, `LeaveServiceImpl` checks the employee's existence over HTTP (Section 6). The `Attendance` entity repeats the story: `attendance_db` stores `employeeId` as a plain number, verified over HTTP by `AttendanceServiceImpl`.
 
 ### The takeaway
 **"Cross-service data integrity is the code's responsibility, not the database's."**

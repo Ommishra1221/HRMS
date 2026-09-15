@@ -7,6 +7,9 @@ import EmployeeDetail from './pages/EmployeeDetail.jsx'
 import LeaveList from './pages/LeaveList.jsx'
 import LeaveFormPage from './pages/LeaveFormPage.jsx'
 import LeaveDetail from './pages/LeaveDetail.jsx'
+import AttendanceList from './pages/AttendanceList.jsx'
+import AttendanceFormPage from './pages/AttendanceFormPage.jsx'
+import AttendanceDetail from './pages/AttendanceDetail.jsx'
 
 // App = layout + routing table.
 // The sidebar stays mounted; <Routes> swaps the page inside <main>.
@@ -19,6 +22,7 @@ export default function App() {
           <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/employees">Employees</NavLink>
           <NavLink to="/leaves">Leaves</NavLink>
+          <NavLink to="/attendance">Attendance</NavLink>
         </nav>
       </aside>
 
@@ -36,6 +40,11 @@ export default function App() {
           <Route path="/leaves/new" element={<LeaveFormPage />} />
           <Route path="/leaves/:id" element={<LeaveDetail />} />
           <Route path="/leaves/:id/edit" element={<LeaveFormPage />} />
+
+          <Route path="/attendance" element={<AttendanceList />} />
+          <Route path="/attendance/new" element={<AttendanceFormPage />} />
+          <Route path="/attendance/:id" element={<AttendanceDetail />} />
+          <Route path="/attendance/:id/edit" element={<AttendanceFormPage />} />
 
           <Route
             path="*"

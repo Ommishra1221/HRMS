@@ -143,6 +143,13 @@ tbody tr:hover { background: #f8fafc; }
 .badge-APPROVED { background: #def7ec; color: #046c4e; }
 .badge-REJECTED { background: #fde8e8; color: #9b1c1c; }
 
+/* ---- Attendance status badges ---- */
+.badge-PRESENT { background: #def7ec; color: #046c4e; }
+.badge-ABSENT { background: #fde8e8; color: #9b1c1c; }
+.badge-LEAVE { background: #fdf3d8; color: #8a6d1a; }
+.badge-HALF_DAY { background: #e5e7eb; color: #3f4753; }
+.badge-WFH { background: #e1effe; color: #1c64f2; }
+
 /* ---- Loading / error / empty states ---- */
 .state-message {
   background: #fff;

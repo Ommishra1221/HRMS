@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import useEmployees from '../hooks/useEmployees'
 import useLeaves from '../hooks/useLeaves'
+import useAttendance from '../hooks/useAttendance'
 import { Loading, ErrorAlert } from '../components/common/Loading'
 
 // Dashboard = read-only overview built from the SAME two hooks the list
@@ -12,13 +13,18 @@ import { Loading, ErrorAlert } from '../components/common/Loading'
 export default function Dashboard() {
   const { employees, loading: empLoading, error: empError, refresh: refreshEmp } = useEmployees()
   const { leaves, loading: leaveLoading, error: leaveError, refresh: refreshLeaves } = useLeaves()
+  const { attendance, loading: attLoading, error: attError, refresh: refreshAtt } = useAttendance()
 
-  if (empLoading || leaveLoading) return <Loading />
+  if (empLoading || leaveLoading || attLoading) return <Loading />
 
-  // Either service being down should not blank the whole dashboard.
-  if (empError && leaveError) {
-    return <ErrorAlert message={empError} onRetry={() => { refreshEmp(); refreshLeaves() }} />
+  // Any service being down should not blank the whole dashboard.
+  if (empError && leaveError && attError) {
+    return <ErrorAlert message={empError} onRetry={() => { refreshEmp(); refreshLeaves(); refreshAtt() }} />
   }
+
+  const presentToday = attendance.filter(
+    (a) => a.status === 'PRESENT' && a.attendanceDate === new Date().toISOString().slice(0, 10)
+  ).length
 
   const pendingCount = leaves.filter((l) => l.status === 'PENDING').length
 
@@ -47,11 +53,22 @@ export default function Dashboard() {
           <span className="stat-number">{leaveError ? '—' : pendingCount}</span>
           <span className="stat-label">Pending Leaves</span>
         </Link>
+
+        <Link to="/attendance" className="stat-card card">
+          <span className="stat-number">{attError ? '—' : attendance.length}</span>
+          <span className="stat-label">Attendance Records</span>
+          {attError && <span className="stat-error">attendance-service error</span>}
+        </Link>
+
+        <Link to="/attendance" className="stat-card card">
+          <span className="stat-number">{attError ? '—' : presentToday}</span>
+          <span className="stat-label">Present Today</span>
+        </Link>
       </div>
 
       <p style={{ color: '#52606d' }}>
-        Use the sidebar to manage <Link to="/employees">Employees</Link> and{' '}
-        <Link to="/leaves">Leaves</Link>.
+        Use the sidebar to manage <Link to="/employees">Employees</Link>,{' '}
+        <Link to="/leaves">Leaves</Link> and <Link to="/attendance">Attendance</Link>.
       </p>
     </div>
   )
