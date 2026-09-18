@@ -4,4 +4,21 @@
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\User\HRMS\payroll-service"/>
+			<item value="C:\Users\User\HRMS\leave-service"/>
+			<item value="C:\Users\User\HRMS\employee-service"/>
+			<item value="C:\Users\User\HRMS\auth-service"/>
+			<item value="C:\Users\User\HRMS\attendance-service"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
 </section>
