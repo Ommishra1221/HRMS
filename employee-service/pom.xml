@@ -28,6 +28,9 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<!-- Keep in sync with auth-service's jjwt.version - one token contract,
+		     one library version, across every service that verifies a JWT. -->
+		<jjwt.version>0.13.0</jjwt.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -45,11 +48,37 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
+		</dependency>		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
-		</dependency>
+			</dependency>
+		<!-- Spring Security: the JWT filter chain + @PreAuthorize role checks.
+		     NO password handling here - login lives in auth-service; this
+		     service only VERIFIES the tokens auth-service signed. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			</dependency>
+		<!-- JJWT: reads and verifies the JWTs (same library + secret as
+		     auth-service, so a token issued there validates here). Only the
+		     api artifact is needed at compile time; impl + jackson run it. -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>${jjwt.version}</version>
+			</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>${jjwt.version}</version>
+			<scope>runtime</scope>
+			</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>${jjwt.version}</version>
+			<scope>runtime</scope>
+			</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>

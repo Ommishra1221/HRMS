@@ -16,6 +16,13 @@ public interface EmployeeService {
 
     List<EmployeeResponse> getAllEmployees();
 
+    /**
+     * EMPLOYEE self-service: the caller's own profile, resolved from the JWT
+     * (never from a path variable). Only meaningful for an account that
+     * carries an employeeId claim.
+     */
+    EmployeeResponse getMyProfile();
+
     EmployeeResponse getEmployeeById(Long id);
 
     EmployeeResponse updateEmployee(Long id, EmployeeRequest request);

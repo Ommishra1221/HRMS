@@ -3,7 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HRMS</title>
+
+    <title>HRMS · Human Resource Management</title>
+    <meta name="description" content="Enterprises HRMS - manage employees, leave, attendance and payroll." />
+    <meta name="theme-color" content="#0f1b33" />
+
+    <!--
+      Fira Sans (UI text) + Fira Code (numbers, IDs, tokens).
+      preconnect lets the browser open the font connection while it is still
+      parsing CSS, which removes one round-trip before text can paint.
+      `display=swap` shows the fallback instantly instead of invisible text.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Inline SVG favicon: no extra request, and it matches the sidebar brand mark. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231E40AF'/%3E%3Cpath d='M10 23V9h3.2v5.2h5.6V9H22v14h-3.2v-5.6h-5.6V23H10z' fill='%23fff'/%3E%3C/svg%3E"
+    />
+    <!--
+      Apply the saved theme BEFORE the first paint.
+      Without this, a dark-mode user sees a white flash while React boots and
+      only then switches. It has to be inline and synchronous to beat paint.
+    -->
+    <script>
+      ;(function () {
+        try {
+          var saved = localStorage.getItem('hrms_theme')
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+          document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light')
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light'
+        }
+      })()
+    </script>
   </head>
   <body>
     <!-- React takes over this empty div and renders everything inside it -->

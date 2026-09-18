@@ -1,28 +1,50 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { AlertTriangle, ArrowLeft, Clock, ClockPlus, Save, Timer } from 'lucide-react'
+
 import useEmployees from '../hooks/useEmployees'
 import { createAttendance, getAttendanceRecord, updateAttendance } from '../api/attendanceApi'
-import { Loading, ErrorAlert } from '../components/common/Loading'
+import { ErrorAlert, Loading } from '../components/common/Loading'
+import PageHeader from '../components/common/PageHeader'
+import Button from '../components/common/Button'
+import Field from '../components/common/Field'
+import { useToast } from '../components/common/Toast'
+import { todayISO } from '../utils/format'
 
 const STATUSES = ['PRESENT', 'ABSENT', 'LEAVE', 'HALF_DAY', 'WFH']
 const EMPTY = { employeeId: '', attendanceDate: '', status: '', checkIn: '', checkOut: '' }
 
-// AttendanceFormPage serves /attendance/new (mark) and /attendance/:id/edit.
-//
+/** Current local time as "HH:mm" - what <input type="time"> expects. */
+function nowTime() {
+  const now = new Date()
+  return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+}
+
+// =============================================================================
+// AttendanceFormPage - serves /attendance/new (mark) and /attendance/:id/edit.
+// =============================================================================
 // SAME MICROSERVICE MOMENT as LeaveFormPage: the employee dropdown is
 // populated from GET /api/employees (Gateway -> employee-service), while the
 // attendance record itself is saved through /api/attendance (Gateway ->
 // attendance-service). The browser sees ONE origin; two microservices
 // cooperate behind the gateway.
+//
+// NEW: the form adapts to the chosen status. A PRESENT day needs a check-in,
+// an ABSENT day does not - so the time fields are only marked required (and
+// only validated) when they actually apply, and "Now" buttons fill the
+// current time in one tap.
+
 export default function AttendanceFormPage() {
   const { id } = useParams()
   const isEdit = Boolean(id)
   const navigate = useNavigate()
+  const toast = useToast()
 
   // Employee list for the dropdown (reuses the same hook as EmployeeList!)
-  const { employees, loading: employeesLoading, error: employeesError, refresh: refreshEmployees } = useEmployees()
+  const { employees, loading: employeesLoading, error: employeesError, refresh: refreshEmployees } =
+    useEmployees()
 
-  const [values, setValues] = useState(EMPTY)
+  const [values, setValues] = useState({ ...EMPTY, attendanceDate: isEdit ? '' : todayISO() })
   const [errors, setErrors] = useState({})
   const [initializing, setInitializing] = useState(isEdit)
   const [loadError, setLoadError] = useState(null)
@@ -31,7 +53,7 @@ export default function AttendanceFormPage() {
 
   // EDIT mode: prefill from the existing record.
   useEffect(() => {
-    if (!isEdit) return
+    if (!isEdit) return undefined
     let cancelled = false
     ;(async () => {
       try {
@@ -51,22 +73,42 @@ export default function AttendanceFormPage() {
         if (!cancelled) setInitializing(false)
       }
     })()
-    return () => { cancelled = true }
+    return () => {
+      cancelled = true
+    }
   }, [id, isEdit])
 
   function handleChange(e) {
     const { name, value } = e.target
-    setValues((prev) => ({ ...prev, [name]: value }))
+    setValues((prev) => {
+      const next = { ...prev, [name]: value }
+      // Choosing a non-working status clears the times, so a stale 09:00 cannot
+      // end up stored against an ABSENT day.
+      if (name === 'status' && value !== 'PRESENT' && value !== 'HALF_DAY') {
+        next.checkIn = ''
+        next.checkOut = ''
+      }
+      return next
+    })
+    setErrors((prev) => (prev[name] ? { ...prev, [name]: null } : prev))
   }
+
+  function fillTime(field) {
+    setValues((prev) => ({ ...prev, [field]: nowTime() }))
+    setErrors((prev) => ({ ...prev, [field]: null }))
+  }
+
+  // Times are only meaningful for statuses that involve working.
+  const timeApplies = values.status === 'PRESENT' || values.status === 'HALF_DAY'
 
   function validate() {
     const errs = {}
     if (!values.employeeId) errs.employeeId = 'employeeId is required'
     if (!values.attendanceDate) errs.attendanceDate = 'attendanceDate is required'
     if (!values.status) errs.status = 'status is required'
-    // Mirror of the backend rule: a PRESENT day needs a check-in time.
-    if (values.status === 'PRESENT' && !values.checkIn) {
-      errs.checkIn = 'checkIn is required when status is PRESENT'
+
+    if (timeApplies && !values.checkIn) {
+      errs.checkIn = `checkIn is required when status is ${values.status}`
     }
     if (values.checkIn && values.checkOut && values.checkOut < values.checkIn) {
       errs.checkOut = 'checkOut cannot be before checkIn'
@@ -78,7 +120,12 @@ export default function AttendanceFormPage() {
     e.preventDefault()
     const errs = validate()
     setErrors(errs)
-    if (Object.keys(errs).length > 0) return
+    if (Object.keys(errs).length > 0) {
+      const firstInvalid = ['employeeId', 'attendanceDate', 'status', 'checkIn', 'checkOut'].find((k) => errs[k])
+      if (firstInvalid) document.getElementById(firstInvalid)?.focus()
+      return
+    }
+
     setSubmitting(true)
     setServerError(null)
     // Payload matches AttendanceRequest EXACTLY. employeeId must be a NUMBER
@@ -91,9 +138,15 @@ export default function AttendanceFormPage() {
       checkIn: values.checkIn || null,
       checkOut: values.checkOut || null,
     }
+
     try {
-      if (isEdit) await updateAttendance(id, payload)
-      else await createAttendance(payload)
+      if (isEdit) {
+        await updateAttendance(id, payload)
+        toast.success('Attendance updated')
+      } else {
+        await createAttendance(payload)
+        toast.success('Attendance marked')
+      }
       navigate('/attendance')
     } catch (err) {
       // e.g. "Attendance already exists for employee 1 on 2026-09-15" (409)
@@ -105,67 +158,171 @@ export default function AttendanceFormPage() {
   }
 
   if (initializing || employeesLoading) return <Loading />
-  if (loadError) return <ErrorAlert message={loadError} />
+
+  if (loadError) {
+    return (
+      <div className="page">
+        <PageHeader title="Edit attendance" />
+        <ErrorAlert title="Could not load this record" message={loadError} />
+      </div>
+    )
+  }
+
   if (employeesError) {
     // No employee list -> the dropdown cannot be filled -> block the form.
-    return <ErrorAlert message={`Cannot load employees: ${employeesError}`} onRetry={refreshEmployees} />
+    return (
+      <div className="page">
+        <PageHeader title={isEdit ? 'Edit attendance' : 'Mark attendance'} />
+        <ErrorAlert
+          title="Cannot load employees"
+          message={`The employee dropdown needs employee-service: ${employeesError}`}
+          onRetry={refreshEmployees}
+        />
+      </div>
+    )
   }
 
   return (
     <div className="page">
-      <div className="page-header">
-        <h2>{isEdit ? 'Edit Attendance' : 'Mark Attendance'}</h2>
-      </div>
+      <PageHeader
+        icon={isEdit ? Clock : ClockPlus}
+        title={isEdit ? 'Edit attendance' : 'Mark attendance'}
+        subtitle="Attendance is stored in attendance_db; the employee is validated against employee-service."
+        actions={
+          <Button as={Link} to="/attendance" variant="secondary" icon={ArrowLeft}>
+            Back to attendance
+          </Button>
+        }
+      />
 
       <form className="form-card" onSubmit={handleSubmit} noValidate>
-        {serverError && <div className="state-message state-error" style={{ marginBottom: 16 }}>{serverError}</div>}
+        {serverError ? (
+          <div className="alert alert--error" role="alert" style={{ marginBottom: 'var(--space-5)' }}>
+            <AlertTriangle size={17} aria-hidden="true" />
+            <div className="alert__body">
+              <p className="alert__title">Could not save</p>
+              {serverError}
+            </div>
+          </div>
+        ) : null}
 
-        <div className="form-field">
-          <label htmlFor="employeeId">Employee</label>
-          <select id="employeeId" name="employeeId" value={values.employeeId} onChange={handleChange}>
-            <option value="">Select employee…</option>
-            {employees.map((emp) => (
-              <option key={emp.id} value={emp.id}>
-                {emp.name} - {emp.department}
-              </option>
-            ))}
-          </select>
-          {errors.employeeId && <p className="field-error">{errors.employeeId}</p>}
-        </div>
+        <div className="form-grid">
+          <Field
+            label="Employee"
+            htmlFor="employeeId"
+            error={errors.employeeId}
+            required
+            hint="Loaded from employee-service."
+          >
+            <select id="employeeId" name="employeeId" value={values.employeeId} onChange={handleChange}>
+              <option value="">Select employee…</option>
+              {employees.map((emp) => (
+                <option key={emp.id} value={emp.id}>
+                  {emp.name} — {emp.department}
+                </option>
+              ))}
+            </select>
+          </Field>
 
-        <div className="form-field">
-          <label htmlFor="attendanceDate">Date</label>
-          <input id="attendanceDate" name="attendanceDate" type="date" value={values.attendanceDate} onChange={handleChange} />
-          {errors.attendanceDate && <p className="field-error">{errors.attendanceDate}</p>}
-        </div>
+          <Field
+            label="Date"
+            htmlFor="attendanceDate"
+            error={errors.attendanceDate}
+            required
+            hint="One record per employee per day."
+          >
+            <input
+              id="attendanceDate"
+              name="attendanceDate"
+              type="date"
+              value={values.attendanceDate}
+              onChange={handleChange}
+            />
+          </Field>
 
-        <div className="form-field">
-          <label htmlFor="status">Status</label>
-          <select id="status" name="status" value={values.status} onChange={handleChange}>
-            <option value="">Select status…</option>
-            {STATUSES.map((status) => (
-              <option key={status} value={status}>{status}</option>
-            ))}
-          </select>
-          {errors.status && <p className="field-error">{errors.status}</p>}
-        </div>
+          <Field
+            label="Status"
+            htmlFor="status"
+            error={errors.status}
+            required
+            full
+            hint="Only working statuses ask for times."
+          >
+            <select id="status" name="status" value={values.status} onChange={handleChange}>
+              <option value="">Select status…</option>
+              {STATUSES.map((status) => (
+                <option key={status} value={status}>
+                  {status.replace(/_/g, ' ')}
+                </option>
+              ))}
+            </select>
+          </Field>
 
-        <div className="form-field">
-          <label htmlFor="checkIn">Check In (required for PRESENT)</label>
-          <input id="checkIn" name="checkIn" type="time" value={values.checkIn} onChange={handleChange} />
-          {errors.checkIn && <p className="field-error">{errors.checkIn}</p>}
-        </div>
+          <Field
+            label="Check in"
+            htmlFor="checkIn"
+            error={errors.checkIn}
+            required={timeApplies}
+            hint={timeApplies ? 'Required for this status.' : 'Not used for this status.'}
+          >
+            <div className="row" style={{ gap: 'var(--space-2)' }}>
+              <input
+                id="checkIn"
+                name="checkIn"
+                type="time"
+                value={values.checkIn}
+                onChange={handleChange}
+                disabled={!timeApplies}
+                style={{ flex: 1 }}
+              />
+              <Button
+                variant="secondary"
+                size="sm"
+                icon={Timer}
+                onClick={() => fillTime('checkIn')}
+                disabled={!timeApplies}
+              >
+                Now
+              </Button>
+            </div>
+          </Field>
 
-        <div className="form-field">
-          <label htmlFor="checkOut">Check Out (optional)</label>
-          <input id="checkOut" name="checkOut" type="time" value={values.checkOut} onChange={handleChange} />
-          {errors.checkOut && <p className="field-error">{errors.checkOut}</p>}
+          <Field
+            label="Check out"
+            htmlFor="checkOut"
+            error={errors.checkOut}
+            hint="Optional - can also be filled in later with one click."
+          >
+            <div className="row" style={{ gap: 'var(--space-2)' }}>
+              <input
+                id="checkOut"
+                name="checkOut"
+                type="time"
+                value={values.checkOut}
+                onChange={handleChange}
+                disabled={!timeApplies}
+                style={{ flex: 1 }}
+              />
+              <Button
+                variant="secondary"
+                size="sm"
+                icon={Timer}
+                onClick={() => fillTime('checkOut')}
+                disabled={!timeApplies}
+              >
+                Now
+              </Button>
+            </div>
+          </Field>
         </div>
 
         <div className="form-actions">
-          <button type="submit" className="btn btn-primary" disabled={submitting}>
-            {submitting ? 'Saving…' : 'Save'}
-          </button>
+          <Button type="submit" variant="primary" icon={Save} loading={submitting}>
+            {isEdit ? 'Save changes' : 'Mark attendance'}
+          </Button>
+          <Button variant="secondary" onClick={() => navigate('/attendance')} disabled={submitting}>
+            Cancel
+          </Button>
         </div>
       </form>
     </div>

@@ -1,5 +1,7 @@
 package com.example.microservices.leave.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.microservices.leave.entity.Leave;
@@ -10,7 +12,8 @@ import com.example.microservices.leave.entity.Leave;
  */
 public interface LeaveRepository extends JpaRepository<Leave, Long> {
 
-    // Spring Data can also derive queries from method names if we need them,
-    // e.g. "give me all leaves of one employee":
-    // List<Leave> findByEmployeeId(Long employeeId);
+    // Used by the EMPLOYEE ownership rule: an employee's "list all leaves"
+    // is scoped to their own rows (employeeId comes from the JWT, not the
+    // request). Spring Data derives the SQL from the method name.
+    List<Leave> findByEmployeeId(Long employeeId);
 }

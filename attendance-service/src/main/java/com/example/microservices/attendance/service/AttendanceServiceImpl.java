@@ -15,7 +15,9 @@ import com.example.microservices.attendance.dto.EmployeeResponse;
 import com.example.microservices.attendance.entity.Attendance;
 import com.example.microservices.attendance.exception.AttendanceNotFoundException;
 import com.example.microservices.attendance.exception.EmployeeServiceException;
+import com.example.microservices.attendance.exception.ForbiddenOperationException;
 import com.example.microservices.attendance.repository.AttendanceRepository;
+import com.example.microservices.attendance.security.CurrentUser;
 
 import feign.FeignException;
 
@@ -29,6 +31,13 @@ import feign.FeignException;
  * This is DATA COMPOSITION ("API composition"): the final JSON is stitched
  * together from two services at request time. Nothing about employees is
  * stored in attendance_db - only the employeeId number.
+ *
+ * THE AUTHORIZATION LAYER (added, existing attendance logic untouched):
+ * Role gates ("only ADMIN writes", "HR is read-only") already ran in
+ * SecurityConfig/@PreAuthorize before this code executes. What is LEFT here
+ * is the per-row rule, because it depends on the data itself: an EMPLOYEE's
+ * rows are the ones whose employee_id equals the employeeId claim in their
+ * JWT (CurrentUser) - the employeeId in a query string is NEVER trusted.
  */
 @Service
 public class AttendanceServiceImpl implements AttendanceService {
@@ -76,9 +85,17 @@ public class AttendanceServiceImpl implements AttendanceService {
     @Override
     @Transactional(readOnly = true)
     public List<AttendanceResponse> getAllAttendance() {
+        // OWNERSHIP: an EMPLOYEE's "list everything" is silently scoped to
+        // their own rows - the filter value is the JWT's employeeId claim,
+        // not anything the client sent (no ?employeeId= can widen it).
+        CurrentUser caller = CurrentUser.get();
+        List<Attendance> records = caller.isEmployee()
+                ? attendanceRepository.findByEmployeeIdOrderByAttendanceDateDesc(caller.employeeId())
+                : attendanceRepository.findAll();
+
         // LEARNING NOTE: one HTTP call PER record (the classic "N+1" problem).
         // Fine for learning; later you'd batch/cache or share IDs only.
-        return attendanceRepository.findAll().stream()
+        return records.stream()
                 .map(this::toResponseWithEmployee)
                 .collect(Collectors.toList());
     }
@@ -89,6 +106,14 @@ public class AttendanceServiceImpl implements AttendanceService {
         Attendance attendance = attendanceRepository.findById(id)
                 .orElseThrow(() -> new AttendanceNotFoundException("Attendance not found with id: " + id));
 
+        // OWNERSHIP: an EMPLOYEE may only read their own attendance. The row's
+        // employee_id is compared with the JWT's employeeId claim - the id in
+        // the path is a REQUEST, never PROOF. (ADMIN and HR pass freely.)
+        CurrentUser caller = CurrentUser.get();
+        if (caller.isEmployee() && !attendance.getEmployeeId().equals(caller.employeeId())) {
+            throw new ForbiddenOperationException("You can only view your own attendance");
+        }
+
         // ---- THE MICROSERVICE COMMUNICATION HAPPENS ON THIS LINE ----
         // employeeClient is a generated HTTP proxy. This one Java method call
         // becomes:  GET http://localhost:8081/employees/{employeeId}
@@ -98,6 +123,16 @@ public class AttendanceServiceImpl implements AttendanceService {
     @Override
     @Transactional(readOnly = true)
     public List<AttendanceResponse> getAttendanceByEmployee(Long employeeId) {
+        // OWNERSHIP: whatever the query string asked for, an EMPLOYEE's filter
+        // is FORCED to their own employeeId from the JWT. Asking for somebody
+        // else's id is not an error - it simply returns your own rows, the
+        // same way the unfiltered list does. (ADMIN and HR keep the real
+        // filter.)
+        CurrentUser caller = CurrentUser.get();
+        if (caller.isEmployee()) {
+            employeeId = caller.employeeId();
+        }
+
         // Verify the employee exists before listing (same Feign check as create).
         fetchEmployeeOrThrow(employeeId);
         return attendanceRepository.findByEmployeeIdOrderByAttendanceDateDesc(employeeId).stream()

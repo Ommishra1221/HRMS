@@ -16,6 +16,14 @@ export async function getEmployees() {
   return res.data // array of { id, name, email, department }
 }
 
+export async function getMyProfile() {
+  // EMPLOYEE self-service: the backend resolves "me" from the JWT's
+  // employeeId claim - there is no id in the URL to fake. ADMIN/HR accounts
+  // (no employee link) get a 403, which is why only employees call this.
+  const res = await api.get('/api/employees/me')
+  return res.data // { id, name, email, department }
+}
+
 export async function getEmployee(id) {
   const res = await api.get(`/api/employees/${id}`)
   return res.data // { id, name, email, department }

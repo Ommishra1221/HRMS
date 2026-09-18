@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -28,6 +29,38 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleNotFound(ResourceNotFoundException ex) {
         return build(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
+    // 403 - authenticated, but not allowed (ownership / role rule).
+    // Raised by the service layer (e.g. an EMPLOYEE asking for another
+    // employee's profile). Role refusals made by Spring Security BEFORE a
+    // controller runs are answered by SecurityConfig's accessDeniedHandler
+    // instead - filters never reach @RestControllerAdvice.
+    @ExceptionHandler(ForbiddenOperationException.class)
+    public ResponseEntity<Map<String, Object>> handleForbidden(ForbiddenOperationException ex) {
+        return build(ex.getStatus(), ex.getMessage());
+    }
+
+    // 403 raised by Spring Security itself, i.e. @PreAuthorize firing on a
+    // method the URL rules let through. THIS HANDLER IS NOT OPTIONAL: method-
+    // security exceptions surface inside the DispatcherServlet, so without it
+    // the catch-all below would swallow AccessDeniedException and the client
+    // would see 500 instead of 403. (Same handler auth-service carries.)
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handleAccessDenied(AccessDeniedException ex) {
+        return build(HttpStatus.FORBIDDEN,
+                "Access denied: you do not have permission to perform this operation");
+    }
+
+    // 403 raised by Spring Security itself, i.e. @PreAuthorize firing on a
+    // method the URL rules let through. THIS HANDLER IS NOT OPTIONAL: method-
+    // security exceptions surface inside the DispatcherServlet, so without it
+    // the catch-all below would swallow AccessDeniedException and the client
+    // would see 500 instead of 403. (Same handler auth-service carries.)
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handleAccessDenied(AccessDeniedException ex) {
+        return build(HttpStatus.FORBIDDEN,
+                "Access denied: you do not have permission to perform this operation");
     }
 
     // 400 - validation failed (e.g. missing name, bad email)

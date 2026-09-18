@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import { AlertTriangle, Save } from 'lucide-react'
 
-// EmployeeForm = one reusable form for BOTH create and edit.
-//
+import Field from '../common/Field'
+import Button from '../common/Button'
+
+// =============================================================================
+// EmployeeForm - one reusable form for BOTH create and edit.
+// =============================================================================
 // The parent page decides the mode:
 //   create -> initialValues={}          onSubmit calls createEmployee()
 //   edit   -> initialValues=employee    onSubmit calls updateEmployee(id)
@@ -10,9 +15,14 @@ import { useState } from 'react'
 //   { name, email, department }   - nothing more, nothing less.
 // (Sending extra fields would be silently ignored by Jackson; missing
 //  required ones would fail backend validation -> we prevent both.)
+//
+// Client-side validation mirrors the backend's @NotBlank/@Email rules. It is
+// UX (instant feedback, no wasted round-trip); the backend is still the real
+// gate and its message is shown at the top if it disagrees.
+
 const EMPTY = { name: '', email: '', department: '' }
 
-export default function EmployeeForm({ initialValues, onSubmit, submitting, serverError }) {
+export default function EmployeeForm({ initialValues, onSubmit, onCancel, submitting, serverError }) {
   const [values, setValues] = useState(initialValues || EMPTY)
   const [errors, setErrors] = useState({})
 
@@ -21,15 +31,29 @@ export default function EmployeeForm({ initialValues, onSubmit, submitting, serv
     setValues((prev) => ({ ...prev, [name]: value }))
   }
 
-  // Mirror of the backend rules (@NotBlank/@Email) - instant feedback
-  // without a wasted network round-trip. The backend still re-checks;
-  // client validation is UX, server validation is the real gate.
+  /** Validate one field on blur so mistakes surface before submit. */
+  function validateField(name, value) {
+    const v = String(value ?? '')
+    if (name === 'name') return v.trim() ? null : 'name is required'
+    if (name === 'email') {
+      if (!v.trim()) return 'email is required'
+      return /^\S+@\S+\.\S+$/.test(v) ? null : 'email must be a valid email address'
+    }
+    if (name === 'department') return v.trim() ? null : 'department is required'
+    return null
+  }
+
+  function handleBlur(e) {
+    const { name, value } = e.target
+    setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }))
+  }
+
   function validate() {
     const errs = {}
-    if (!values.name.trim()) errs.name = 'name is required'
-    if (!values.email.trim()) errs.email = 'email is required'
-    else if (!/^\S+@\S+\.\S+$/.test(values.email)) errs.email = 'email must be a valid email address'
-    if (!values.department.trim()) errs.department = 'department is required'
+    for (const key of Object.keys(EMPTY)) {
+      const message = validateField(key, values[key])
+      if (message) errs[key] = message
+    }
     return errs
   }
 
@@ -47,32 +71,88 @@ export default function EmployeeForm({ initialValues, onSubmit, submitting, serv
 
   return (
     <form className="form-card" onSubmit={handleSubmit} noValidate>
-      {/* Server errors (e.g. duplicate email -> 500 unique constraint,
-          or a backend validation message) show on top of the form. */}
-      {serverError && <div className="state-message state-error" style={{ marginBottom: 16 }}>{serverError}</div>}
+      {/* Server errors stay at the top (they can concern the whole request),
+          while field-level validation appears under each field. */}
+      {serverError ? (
+        <div className="alert alert--error" role="alert" style={{ marginBottom: 'var(--space-5)' }}>
+          <AlertTriangle size={17} aria-hidden="true" />
+          <div className="alert__body">
+            <p className="alert__title">Could not save</p>
+            {serverError}
+          </div>
+        </div>
+      ) : null}
 
-      <div className="form-field">
-        <label htmlFor="name">Name</label>
-        <input id="name" name="name" value={values.name} onChange={handleChange} placeholder="Asha Kumar" />
-        {errors.name && <p className="field-error">{errors.name}</p>}
+      <div className="form-grid">
+        <Field
+          label="Full name"
+          htmlFor="name"
+          error={errors.name}
+          required
+          hint="Shown throughout the app and on reports."
+        >
+          <input
+            id="name"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Asha Kumar"
+            autoComplete="name"
+          />
+        </Field>
+
+        <Field label="Email address" htmlFor="email" error={errors.email} required>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="asha@corp.com"
+            autoComplete="email"
+          />
+        </Field>
+
+        <Field
+          label="Department"
+          htmlFor="department"
+          error={errors.department}
+          required
+          hint="Used to group employees in lists and reports."
+        >
+          <input
+            id="department"
+            name="department"
+            value={values.department}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Engineering"
+            list="department-suggestions"
+          />
+        </Field>
       </div>
 
-      <div className="form-field">
-        <label htmlFor="email">Email</label>
-        <input id="email" name="email" type="email" value={values.email} onChange={handleChange} placeholder="asha@corp.com" />
-        {errors.email && <p className="field-error">{errors.email}</p>}
-      </div>
-
-      <div className="form-field">
-        <label htmlFor="department">Department</label>
-        <input id="department" name="department" value={values.department} onChange={handleChange} placeholder="Engineering" />
-        {errors.department && <p className="field-error">{errors.department}</p>}
-      </div>
+      {/* Suggestions only - the field stays free text because the backend
+          accepts any string. */}
+      <datalist id="department-suggestions">
+        <option value="Engineering" />
+        <option value="Human Resources" />
+        <option value="Finance" />
+        <option value="Sales" />
+        <option value="Operations" />
+      </datalist>
 
       <div className="form-actions">
-        <button type="submit" className="btn btn-primary" disabled={submitting}>
-          {submitting ? 'Saving…' : 'Save'}
-        </button>
+        <Button type="submit" variant="primary" icon={Save} loading={submitting}>
+          {submitting ? 'Saving…' : 'Save employee'}
+        </Button>
+        {onCancel ? (
+          <Button variant="secondary" onClick={onCancel} disabled={submitting}>
+            Cancel
+          </Button>
+        ) : null}
       </div>
     </form>
   )

@@ -7,6 +7,7 @@ import java.util.Map;
 import feign.FeignException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -29,9 +30,31 @@ public class GlobalExceptionHandler {
         return build(ex.getStatus(), ex.getMessage());
     }
 
+    // 403 - authenticated, but not allowed (ownership / PENDING rule).
+    // Raised by the service layer (e.g. an EMPLOYEE touching another
+    // employee's leave, or editing a non-PENDING one). Role refusals made by
+    // Spring Security BEFORE a controller runs are answered by
+    // SecurityConfig's accessDeniedHandler instead - filters never reach
+    // @RestControllerAdvice.
+    @ExceptionHandler(ForbiddenOperationException.class)
+    public ResponseEntity<Map<String, Object>> handleForbidden(ForbiddenOperationException ex) {
+        return build(ex.getStatus(), ex.getMessage());
+    }
+
     @ExceptionHandler(EmployeeServiceException.class)
     public ResponseEntity<Map<String, Object>> handleEmployeeService(EmployeeServiceException ex) {
         return build(ex.getStatus(), ex.getMessage());
+    }
+
+    // 403 raised by Spring Security itself, i.e. @PreAuthorize firing on a
+    // method the URL rules let through. THIS HANDLER IS NOT OPTIONAL: method-
+    // security exceptions surface inside the DispatcherServlet, so without it
+    // the catch-all below would swallow AccessDeniedException and the client
+    // would see 500 instead of 403. (Same handler auth-service carries.)
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<Map<String, Object>> handleAccessDenied(AccessDeniedException ex) {
+        return build(HttpStatus.FORBIDDEN,
+                "Access denied: you do not have permission to perform this operation");
     }
 
     // Thrown by OpenFeign when employee-service cannot be reached at all
