@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { AlertTriangle, Banknote, CalendarDays, Clock, Info, LogIn, Users } from 'lucide-react'
+import { AlertTriangle, Banknote, CalendarDays, Clock, LogIn, Users } from 'lucide-react'
 
 import { useAuth } from '../context/AuthContext'
+import { HOME, destinationFor } from '../config/access'
 import Button from '../components/common/Button'
 import Field from '../components/common/Field'
 import PasswordInput, { useAutofocus } from '../components/common/PasswordInput'
@@ -33,23 +34,30 @@ const CAPABILITIES = [
 ]
 
 export default function Login() {
-  const { login, isAuthenticated, isAdmin } = useAuth()
+  const { login, isAuthenticated, user } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const toast = useToast()
   const usernameRef = useAutofocus()
 
-  // ProtectedRoute parks the intended page here before bouncing to /login,
-  // so after logging in we can send the user RIGHT back where they were.
-  const from = location.state?.from || '/dashboard'
+  // ProtectedRoute parks the intended page here before bouncing to /login, so
+  // after logging in we can send the user RIGHT back where they were.
+  const from = location.state?.from || HOME
+  const role = user?.roles?.[0]
+
+  // ...but ONLY if the role that just signed in may actually open that page.
+  // The saved path was captured while nobody was signed in, and the next login
+  // can be any role - returning an employee to an ADMIN page (e.g. /users)
+  // would drop them on the "access required" card instead of their dashboard.
+  const destination = destinationFor(from, role)
 
   // An already-signed-in user landing on /login (bookmark, back button) goes
-  // straight back to their dashboard - the login form has no job to do.
+  // straight on to the destination above - the login form has no job to do.
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(isAdmin ? '/dashboard' : from, { replace: true })
+      navigate(destination, { replace: true })
     }
-  }, [isAuthenticated, isAdmin, from, navigate])
+  }, [isAuthenticated, destination, navigate])
 
   const [values, setValues] = useState({ username: '', password: '' })
   const [errors, setErrors] = useState({})
@@ -82,9 +90,11 @@ export default function Login() {
     setSubmitting(true)
     setServerError(null)
     try {
-      const user = await login({ username: values.username.trim(), password: values.password })
-      toast.success('Signed in', `Welcome back, ${user.fullName || user.username}.`)
-      navigate(from, { replace: true })
+      const signedIn = await login({ username: values.username.trim(), password: values.password })
+      toast.success('Signed in', `Welcome back, ${signedIn.fullName || signedIn.username}.`)
+      // Same role check as above, but against the role the SERVER just handed
+      // back - the React state used by `destination` is not updated yet here.
+      navigate(destinationFor(from, signedIn.roles?.[0]), { replace: true })
     } catch (err) {
       // Backend message: "Invalid username or password" (401) - shown as-is.
       // Deliberately vague on purpose: naming which half was wrong would let
@@ -200,13 +210,6 @@ export default function Login() {
               the page states where accounts come from. */}
           <p className="auth-note">
             Accounts are created by an administrator. Ask yours if you cannot sign in.
-          </p>
-
-          {/* Demo credentials. Role="note" so it is announced as a hint. */}
-          <p className="auth-hint" role="note">
-            <Info size={14} aria-hidden="true" />
-            Demo logins: <strong>admin</strong> / <strong>Admin@123</strong> &middot; <strong>hr</strong> /{' '}
-            <strong>Hr@123</strong> &middot; <strong>emp01</strong> / <strong>Emp01@123</strong>
           </p>
         </div>
 

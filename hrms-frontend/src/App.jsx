@@ -44,6 +44,9 @@ import Login from './pages/Login.jsx'
 //
 // Write routes (new/edit forms, users) are wrapped so an EMPLOYEE deep link
 // lands on a friendly "no permission" card instead of a half-working form.
+//
+// ⚠ The guards below are the real rule. config/access.js keeps a second copy of
+// them, used only to pick a landing page after login - change both together.
 
 export default function App() {
   return (

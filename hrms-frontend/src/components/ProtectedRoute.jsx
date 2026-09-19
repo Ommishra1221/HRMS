@@ -1,6 +1,8 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { ShieldAlert } from 'lucide-react'
+import { Link, Navigate, Outlet, useLocation } from 'react-router-dom'
+import { ArrowLeft, ShieldAlert } from 'lucide-react'
 import { ROLES, useAuth } from '../context/AuthContext'
+import { HOME } from '../config/access'
+import Button from './common/Button'
 import { EmptyState } from './common/Loading'
 
 // ProtectedRoute = the client-side gatekeeper, now ROLE-AWARE.
@@ -15,7 +17,9 @@ import { EmptyState } from './common/Loading'
 // What this component actually buys:
 // 1. Anonymous visitors never see an app shell that would immediately error.
 // 2. A deep link to a page the role cannot use lands on a friendly "no
-//    permission" card instead of a form that would 403 on submit.
+//    permission" card - WITH a way back to the dashboard, so being refused is
+//    never a dead end (a bookmark or hand-typed /users as an employee is the
+//    usual cause, not a bug).
 // 3. The intended destination is remembered so Login can return the user.
 //
 // USAGE
@@ -48,7 +52,13 @@ export default function ProtectedRoute({ children, adminOnly = false, roles = nu
           icon={ShieldAlert}
           title={`${required} access required`}
           message="Your account does not have permission to view this page. Ask an administrator if you think this is a mistake."
-        />
+        >
+          {/* The escape hatch. Without it the only way off this card was the
+              sidebar, which is exactly what a deep link skips past. */}
+          <Button as={Link} to={HOME} variant="secondary" icon={ArrowLeft}>
+            Back to dashboard
+          </Button>
+        </EmptyState>
       </div>
     )
   }

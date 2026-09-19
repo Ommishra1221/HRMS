@@ -44,11 +44,33 @@ export function formatMonth(value) {
   return `${monthName} ${year}`
 }
 
-/** Today as "yyyy-MM-dd" in the LOCAL timezone - what <input type="date"> wants. */
-export function todayISO() {
-  const now = new Date()
+/**
+ * A Date as "yyyy-MM-dd" in the LOCAL timezone - what <input type="date"> wants.
+ *
+ * Pass the `reference` Date when the value must come from a specific instant
+ * (e.g. a live clock that re-renders every second) instead of "whatever the
+ * clock says right now", so every field on the screen agrees on the day.
+ */
+export function todayISO(reference = new Date()) {
   const pad = (n) => String(n).padStart(2, '0')
-  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`
+  return `${reference.getFullYear()}-${pad(reference.getMonth() + 1)}-${pad(reference.getDate())}`
+}
+
+/**
+ * A Date as "10:42:25 PM" - the live clock in the topbar.
+ *
+ * The timezone is the viewer's own (toLocaleTimeString's default), never the
+ * server's. The format is pinned to the 12-hour English clock on purpose: the
+ * month names above are hardcoded English too, so the UI stays consistent
+ * instead of switching to "22:42" or "10:42:25 pm" per locale.
+ */
+export function formatTime(reference = new Date()) {
+  return reference.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  })
 }
 
 /** "2026-09-15" -> "2026-09" (used to group payslips by month). */

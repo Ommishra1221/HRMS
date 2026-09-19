@@ -18,6 +18,7 @@
             <entry path="C:\Program Files\Java\jre-1.8\lib\endorsed"/>
         </endorsedDirs>
     </libraryInfo>
+    <libraryInfo home="C:\Program Files\Java\jdk-22" version="22.0.1"/>
     <libraryInfo home="C:\Users\User\Desktop\STS\sts-4.10.0.RELEASE\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.2.v20210201-0955" version="15.0.2"/>
     <libraryInfo home="C:\Program Files\Java\jdk-21" version="21.0.8"/>
     <libraryInfo home="C:\Program Files\Java\jdk1.8.0_31" version="1.8.0_31">

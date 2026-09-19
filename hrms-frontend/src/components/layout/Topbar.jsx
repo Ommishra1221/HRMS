@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import {
+  CalendarDays,
   ChevronDown,
+  Clock as ClockIcon,
   LogOut,
   Menu,
   Moon,
@@ -12,8 +14,9 @@ import {
 } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 import { navGroupsFor, pageTitleFor, sectionFor } from '../../config/navigation'
+import useClock from '../../hooks/useClock'
 import useTheme from '../../hooks/useTheme'
-import { initials } from '../../utils/format'
+import { formatDate, formatTime, initials, todayISO } from '../../utils/format'
 import Button from '../common/Button'
 
 // =============================================================================
@@ -21,11 +24,43 @@ import Button from '../common/Button'
 // =============================================================================
 // Left:  nav toggle (collapse the rail on desktop / open the drawer on mobile)
 //        + where am I (breadcrumb)
-// Right: theme switch + the signed-in user's menu
+// Right: live date/time + theme switch + the signed-in user's menu
 //
 // Both controls do real work. No decorative search box or notification bell
 // that leads nowhere - a control that looks functional but is not is worse
 // than no control at all.
+
+// -----------------------------------------------------------------------------
+// Clock - the live date and time.
+// -----------------------------------------------------------------------------
+// Two compact rows (date above, time below) sitting before the controls.
+//
+// It re-renders every second, which is exactly why it is its OWN component:
+// the per-second update never re-renders the topbar, the layout, or the page.
+//
+// NO aria-live ON PURPOSE. A live region that announced a new time every second
+// would make the app unusable with a screen reader. The two <time> elements are
+// ordinary readable text (fetched on demand) and `title` carries the full
+// value on hover. The AM/PM digits are the reason for tabular numbers in CSS -
+// proportional digits would make the clock jitter as it ticks.
+function Clock() {
+  const now = useClock()
+  const date = formatDate(todayISO(now))
+  const time = formatTime(now)
+
+  return (
+    <div className="topbar__clock" title={`${date} · ${time}`}>
+      <span className="topbar__clock-row">
+        <CalendarDays size={13} aria-hidden="true" />
+        <time dateTime={todayISO(now)}>{date}</time>
+      </span>
+      <span className="topbar__clock-row topbar__clock-row--time">
+        <ClockIcon size={13} aria-hidden="true" />
+        <time dateTime={now.toISOString()}>{time}</time>
+      </span>
+    </div>
+  )
+}
 
 /** Group name that owns a given route, e.g. /employees -> "Workforce". */
 function groupLabelFor(pathname, role) {
@@ -173,6 +208,8 @@ export default function Topbar({ onToggleNav, navExpanded, isMobile }) {
       </nav>
 
       <div className="topbar__actions">
+        <Clock />
+
         <Button
           variant="ghost"
           iconOnly

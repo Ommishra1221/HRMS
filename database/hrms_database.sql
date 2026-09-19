@@ -260,7 +260,7 @@ COPY auth_schema.users (id, email, employee_id, enabled, full_name, password, us
 1	admin@hrms.com	\N	t	System Administrator	$2a$10$B1bo4klSQbP.G4AFdDfmV.RsVSWQ8eMXft/Q6yh6E9EF0/uh6IEtm	admin
 2	hr@hrms.com	\N	t	HR Manager	$2a$10$E1ff74g19wr4RIOisdDjYumI0jCkea.rGPesiiqxg9APZOZ29w9v6	hr
 4	hr02@hrms.com	\N	t	HR Executive	$2a$10$0lpMH894fy2bNGY6tGYFneNbgG7rdF4v4lxtLPEz2SVQg0zUx.Wfi	hr02
-3	aarav.sharma@hrms.com	1	t	Aarav Sharma	$2a$10$v8E0Ck.sq3GJsjYAGR53FORdHgbyCJQ1hnADWmL4W3He0MM.popa2	emp01
+3	om.mishra@hrms.com	1	t	Om Kumar Mishra	$2a$10$v8E0Ck.sq3GJsjYAGR53FORdHgbyCJQ1hnADWmL4W3He0MM.popa2	emp01
 5	priya.nair@hrms.com	2	t	Priya Nair	$2a$10$9zkOv5nlwchXtQC8gJl3l.6mAMzvQo1mKuz/RmSS22WYYdQHB0aqa	emp02
 6	rahul.verma@hrms.com	3	t	Rahul Verma	$2a$10$XWoCGroyspRLYidPj.FqVeucMp5qroHOHOYOnkTecuX5tt52WC3tC	emp03
 7	sneha.das@hrms.com	4	t	Sneha Das	$2a$10$tRWt0jZ.NNWfuCkRrYVkE.NuEgnj4uj0zRmC9gTISBaB6Rmhi5cpW	emp04
@@ -291,7 +291,7 @@ COPY auth_schema.users_roles (user_id, role_id) FROM stdin;
 --
 
 COPY employee_schema.employees (id, department, email, name) FROM stdin;
-1	Engineering	aarav.sharma@hrms.com	Aarav Sharma
+1	Engineering	om.mishra@hrms.com	Om Kumar Mishra
 2	Finance	priya.nair@hrms.com	Priya Nair
 3	Human Resources	rahul.verma@hrms.com	Rahul Verma
 4	Marketing	sneha.das@hrms.com	Sneha Das

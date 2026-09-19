@@ -1,5 +1,0 @@
-package com.example.microservices.employee.entity;
-
-public class Employee {
-
-}

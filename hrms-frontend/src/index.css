@@ -585,6 +585,32 @@ img, svg { display: block; max-width: 100%; }
 
 .topbar__actions { display: flex; align-items: center; gap: var(--space-2); }
 
+/* ---- Live date + time (topbar) ---- */
+/* Two tight rows keep it compact next to the controls, and a hairline (rather
+   than a box or a badge) keeps it subtle - it is information, not a control. */
+.topbar__clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  padding-right: var(--space-3);
+  margin-right: var(--space-1);
+  border-right: 1px solid var(--color-border);
+  font-size: var(--fs-xs);
+  line-height: 1.35;
+  white-space: nowrap;
+  color: var(--color-fg-subtle);
+}
+.topbar__clock-row { display: flex; align-items: center; gap: 5px; }
+.topbar__clock-row svg { flex: none; opacity: 0.7; }
+/* The time is the part people actually glance at, so it carries the weight -
+   and tabular digits, so ticking seconds never shift the layout. */
+.topbar__clock-row--time {
+  color: var(--color-fg-muted);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ---- User menu (topbar) ---- */
 .user-menu { position: relative; }
 
@@ -1697,21 +1723,6 @@ th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
 /* "Accounts are created by an administrator" - replaces the old
    "No account yet? Create one" link now that signup is gone. */
 .auth-note { margin: var(--space-5) 0 0; font-size: var(--fs-base); text-align: center; color: var(--color-fg-muted); }
-.auth-hint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* The hint lists three demo logins, so it needs to wrap on narrow cards. */
-  flex-wrap: wrap;
-  text-align: center;
-  gap: 6px;
-  margin: var(--space-4) 0 0;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-sm);
-  background: var(--color-muted);
-  font-size: var(--fs-sm);
-  color: var(--color-fg-muted);
-}
 
 /* Password field with a show/hide trailing button. */
 .password-field { position: relative; }
@@ -1832,6 +1843,11 @@ th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .topbar__crumbs-root,
   .topbar__crumbs-sep { display: none; }
   .topbar { padding: 0 var(--space-4); }
+
+  /* On a phone the topbar belongs to navigation, so the clock keeps only the
+     live time (the date stays in the title attribute and returns at 721px). */
+  .topbar__clock { padding-right: var(--space-2); }
+  .topbar__clock-row:not(.topbar__clock-row--time) { display: none; }
 
   .page-header { flex-direction: column; align-items: stretch; }
   .page-header__actions { width: 100%; }
