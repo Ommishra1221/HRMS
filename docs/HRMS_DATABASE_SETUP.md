@@ -117,3 +117,40 @@ relationships, repositories/services/controllers, API contracts, and every
 frontend file. Some Java comment blocks and the older `*.md` guides still
 mention the historical `*_db` names — those are documentation only and have no
 effect on runtime behaviour.
+
+---
+
+## 5. Demo data (when the UI looks empty)
+
+A freshly created `HRMS` database has the employee directory and the auth
+accounts, but no leave, attendance or payroll rows — so every list, chart and
+dashboard tile renders an empty state. `database/demo_data.sql` fills exactly
+those three schemas with realistic data:
+
+```bash
+export PGPASSWORD=postgres
+psql -U postgres -h localhost -f database/demo_data.sql
+```
+
+What it creates (on the standard 6-employee roster):
+
+| Schema | Rows | Shape |
+|---|---|---|
+| `leave_schema.leaves` | 16 | 9 APPROVED, 3 REJECTED, 4 PENDING · SICK/CASUAL/EARNED · Jun–Oct 2026 |
+| `attendance_schema.attendance` | 120 | 20 weekdays × 6 employees (24 Aug – 18 Sep 2026) · PRESENT / WFH / HALF_DAY / ABSENT / LEAVE |
+| `payroll_schema.payrolls` | 36 | Apr–Aug 2026 PAID + Sep 2026 PENDING, one per employee per month |
+
+It only ever writes `INSERT`s (plus nothing else), and every insert is guarded by
+`NOT EXISTS`, so it is **safe to run repeatedly** — a second run adds nothing.
+The employee roster and salary bands are derived from
+`employee_schema.employees` and its `department` column, so employees added
+later are seeded too. `APPROVED` leave dates automatically become `LEAVE`
+attendance rows, and every rule the services enforce (one attendance row per
+employee per day, one payslip per employee per month, `PAID` always has a
+payment date, `check_out` never before `check_in`) holds in the generated data as
+well.
+
+> The standalone databases `employee_db`, `leave_db`, `attendance_db` and
+> `payroll_db` are leftovers from before this migration. **Nothing reads or
+> writes them any more** — do not seed or query them; the live data is always
+> inside `HRMS`.
