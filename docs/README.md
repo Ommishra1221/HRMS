@@ -33,6 +33,7 @@ Supporting references (read when needed, not in order):
 - [learning/MICROSERVICES_CONCEPTS.md](learning/MICROSERVICES_CONCEPTS.md) — concepts dictionary
 - [learning/JAVA_AND_SPRING_CONCEPTS_USED.md](learning/JAVA_AND_SPRING_CONCEPTS_USED.md) — the Java/Spring features this codebase actually uses
 - [learning/FEIGN_EUREKA_GATEWAY.md](learning/FEIGN_EUREKA_GATEWAY.md) — deep dive on service-to-service plumbing
+- [security/AUTH_SERVICE_SECURITY.md](security/AUTH_SERVICE_SECURITY.md) — auth-service security deep dive with flow diagrams
 - [frontend/UI_DESIGN_SYSTEM.md](frontend/UI_DESIGN_SYSTEM.md) — tokens, components, accessibility
 
 ---
