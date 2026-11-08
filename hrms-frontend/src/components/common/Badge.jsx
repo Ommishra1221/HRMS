@@ -16,6 +16,8 @@ const STATUS_LABELS = {
   HALF_DAY: 'Half day',
   WFH: 'Work from home',
   PAID: 'Paid',
+  PENDING_HR_REVIEW: 'Pending HR review',
+  PENDING_ADMIN_APPROVAL: 'Pending ADMIN approval',
 }
 
 /**

@@ -44,4 +44,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Used by GET /auth/users - stable ordering so the list does not shuffle
     // between calls (same reason the other services order their list APIs).
     List<User> findAllByOrderByIdAsc();
+
+    @org.springframework.data.jpa.repository.Query("""
+        select distinct u from User u join u.roles r
+        where u.enabled = true and u.employeeId is not null and r.name = 'ROLE_EMPLOYEE'
+        and (lower(u.username) like lower(concat('%', :search, '%'))
+          or lower(u.fullName) like lower(concat('%', :search, '%')))
+        """)
+    org.springframework.data.domain.Page<User> findProbationReviewers(
+        @org.springframework.data.repository.query.Param("search") String search,
+        org.springframework.data.domain.Pageable pageable);
 }

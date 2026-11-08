@@ -1,0 +1,1149 @@
+- generic [ref=f46e2]:
+  - heading "0 notifications" [level=2] [ref=f46e3]
+  - generic [ref=f46e4]:
+    - generic:
+      - generic "Skip navigation menu":
+        - button "Close jump menu" [ref=f46e6] [cursor=pointer]
+    - generic [ref=f46e9]:
+      - banner [ref=f46e11]:
+        - generic [ref=f46e15]:
+          - button [ref=f46e16] [cursor=pointer]
+          - generic [ref=f46e18]:
+            - status [ref=f46e19]
+            - search [ref=f46e20]:
+              - textbox "Search" [ref=f46e24]
+      - main [ref=f46e26]:
+        - generic [ref=f46e28]:
+          - complementary "Sidebar" [ref=f46e29]:
+            - generic [ref=f46e33]:
+              - generic [ref=f46e34]:
+                - figure [aria-hidden] [ref=f46e36]
+                - figure [aria-hidden] [ref=f46e38]
+              - generic [ref=f46e39]:
+                - paragraph [ref=f46e41]: Om kumar Mishra
+                - paragraph [ref=f46e42]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+              - generic [ref=f46e43]:
+                - paragraph [ref=f46e44]: Followers
+                - paragraph [ref=f46e45]: 1,297
+              - generic [ref=f46e46]:
+                - button "Follow Om kumar Mishra" [ref=f46e50] [cursor=pointer]:
+                  - generic [ref=f46e51]: Follow
+                - link "Message" [ref=f46e56] [cursor=pointer]:
+                  - /url: /messaging/compose/?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAEAB6f4BH2WVA-G5nXMJ3tu7eBDsVpKdmAE&recipient=ACoAAEAB6f4BH2WVA-G5nXMJ3tu7eBDsVpKdmAE&screenContext=NON_SELF_PROFILE_VIEW&interop=msgOverlay
+          - region "Primary content" [ref=f46e60]:
+            - generic [ref=f46e63]:
+              - heading "All activity" [level=2] [ref=f46e65]
+              - navigation [ref=f46e66]:
+                - list [ref=f46e67]:
+                  - listitem [ref=f46e68]:
+                    - link "Posts" [ref=f46e69] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/recent-activity/all/
+                  - listitem [ref=f46e72]:
+                    - link "Comments" [ref=f46e73] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/recent-activity/comments/
+                  - listitem [ref=f46e76]:
+                    - link "Videos" [ref=f46e77] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/recent-activity/videos/
+                  - listitem [ref=f46e80]:
+                    - link "Images" [ref=f46e81] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/recent-activity/images/
+                  - listitem [ref=f46e84]:
+                    - link "Documents" [ref=f46e85] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/recent-activity/documents/
+                  - listitem [ref=f46e88]:
+                    - link "Reactions" [ref=f46e89] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/recent-activity/reactions/
+              - list [ref=f46e94]:
+                - listitem [ref=f46e99]:
+                  - generic [ref=f46e101]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e103]:
+                      - link [ref=f46e106] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e107]
+                      - generic [ref=f46e109]:
+                        - link [ref=f46e112] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e116]:
+                            - paragraph [ref=f46e119]: Om kumar Mishra
+                            - paragraph [ref=f46e121]: • 3rd+
+                        - paragraph [ref=f46e123]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e125]: 1mo
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e129] [cursor=pointer]:
+                        - generic [ref=f46e130]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e134] [cursor=pointer]
+                    - paragraph [ref=f46e137]:
+                      - generic [ref=f46e138]:
+                        - text: My first post showed what I built. This one shows how I built it. 🚀I’ve been working on an HRMS (Human Resource Management System) to understand how a real-world Microservices architecture works.The application is divided into multiple independent services:🧑‍💼 Employee Service📝 Leave Service⏰ Attendance Service💰 Payroll Service🔐 Auth ServiceThe communication flow looks like:React → API Gateway → MicroserviceFor service-to-service communication, I used OpenFeign, while Eureka handles service discovery.For example:Leave → OpenFeign → EmployeePayroll → OpenFeign → EmployeeAttendance → OpenFeign → EmployeeEach service also has its own PostgreSQL database, rather than directly accessing another service's database.Working on this project has helped me understand concepts beyond just writing Spring Boot APIs — service discovery, API Gateway, inter-service communication, database isolation, authentication, and designing service boundaries.I'm building this project step by step to strengthen my understanding of Java + Spring Boot + Microservices.Still learning. Still building. 🚀
+                        - 'link "View hashtag: #java" [ref=f46e141] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23java&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e142]: "#Java"
+                        - 'link "View hashtag: #springboot" [ref=f46e144] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23springboot&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e145]: "#SpringBoot"
+                        - 'link "View hashtag: #microservices" [ref=f46e147] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23microservices&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e148]: "#Microservices"
+                        - 'link "View hashtag: #openfeign" [ref=f46e150] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23openfeign&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e151]: "#OpenFeign"
+                        - 'link "View hashtag: #eureka" [ref=f46e153] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23eureka&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e154]: "#Eureka"
+                        - 'link "View hashtag: #apigateway" [ref=f46e156] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23apigateway&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e157]: "#APIGateway"
+                        - 'link "View hashtag: #postgresql" [ref=f46e159] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23postgresql&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e160]: "#PostgreSQL"
+                        - 'link "View hashtag: #reactjs" [ref=f46e162] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23reactjs&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e163]: "#ReactJS"
+                        - 'link "View hashtag: #backenddevelopment" [ref=f46e165] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23backenddevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e166]: "#BackendDevelopment"
+                        - 'link "View hashtag: #softwareengineering" [ref=f46e168] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23softwareengineering&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e169]: "#SoftwareEngineering"
+                    - generic [ref=f46e171]:
+                      - generic [ref=f46e172]:
+                        - link [ref=f46e173] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/
+                          - img "View image" [ref=f46e174]
+                        - generic [ref=f46e175]:
+                          - link [ref=f46e177] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/
+                            - img "View image" [ref=f46e178]
+                          - link [ref=f46e180] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/
+                            - img "View image" [ref=f46e181]
+                          - generic [ref=f46e182]:
+                            - link [ref=f46e183] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/
+                              - img "View image" [ref=f46e184]
+                            - link [ref=f46e185] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/
+                              - generic "1 more image" [ref=f46e186]:
+                                - paragraph [ref=f46e187]: "+1"
+                      - button "This image has content credentials." [ref=f46e189] [cursor=pointer]:
+                        - figure [aria-hidden] [ref=f46e191]
+                    - generic [ref=f46e192]:
+                      - generic [ref=f46e193]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e196] [cursor=pointer]':
+                          - generic [ref=f46e197]: "8"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e202] [cursor=pointer]:
+                        - generic [ref=f46e203]: "2"
+                      - button "Repost" [ref=f46e208] [cursor=pointer]
+                      - link "Send" [ref=f46e211] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e214] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "8 reactions" [ref=f46e215]
+                - listitem [ref=f46e222]:
+                  - generic [ref=f46e224]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e226]:
+                      - link [ref=f46e229] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e230]
+                      - generic [ref=f46e232]:
+                        - link [ref=f46e235] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e239]:
+                            - paragraph [ref=f46e242]: Om kumar Mishra
+                            - paragraph [ref=f46e244]: • 3rd+
+                        - paragraph [ref=f46e246]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e248]: 1mo
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e252] [cursor=pointer]:
+                        - generic [ref=f46e253]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e257] [cursor=pointer]
+                    - paragraph [ref=f46e260]:
+                      - generic [ref=f46e261]:
+                        - text: 🚀 What started as a goal to learn Microservices turned into a project I’m genuinely proud of.After spending many days building, debugging, learning, breaking things, fixing them, and understanding how everything connects, I’ve completed my HRMS (Human Resource Management System) project.I started this project with one simple goal:I wanted to learn Microservices by actually building something from scratch.Instead of only learning concepts theoretically, I wanted to understand how services communicate, how databases are separated, how authentication works, how business logic is handled, and how a complete application comes together.🛠️ Tech StackJava • Spring Boot • Microservices • React • PostgreSQL • Spring Security • JWT • OpenFeign • Eureka • API Gateway📌 Main Modules👥 Employee Management📝 Leave Management⏰ Attendance Management💰 Payroll Management🔐 Authentication & Role-Based AccessI also implemented three different roles:ADMIN — full system managementHR — operational/read accessEMPLOYEE — self-service and own-data accessOne of the biggest things I learned from this project is that building a project is not only about writing code.It is also about understanding why the architecture is designed a certain way, debugging problems, handling security, designing business rules, and connecting everything together.I built this project with a lot of effort and honestly, with my heart. My goal was to create something practical rather than just another tutorial project, and I designed it as a possible foundation for small startups or teams that need basic HR management functionality, depending on their requirements.This project has been a big learning milestone for me, especially in Spring Boot, Microservices, Spring Security, JWT, Feign, Eureka, PostgreSQL and React.One project. Many lessons. A lot of growth. 🚀I’d love to hear from developers working with Java or Microservices:What would you improve or add to this architecture?
+                        - 'link "View hashtag: #java" [ref=f46e264] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23java&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e265]: "#Java"
+                        - 'link "View hashtag: #springboot" [ref=f46e267] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23springboot&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e268]: "#SpringBoot"
+                        - 'link "View hashtag: #microservices" [ref=f46e270] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23microservices&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e271]: "#Microservices"
+                        - 'link "View hashtag: #reactjs" [ref=f46e273] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23reactjs&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e274]: "#ReactJS"
+                        - 'link "View hashtag: #springsecurity" [ref=f46e276] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23springsecurity&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e277]: "#SpringSecurity"
+                        - 'link "View hashtag: #postgresql" [ref=f46e279] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23postgresql&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e280]: "#PostgreSQL"
+                        - 'link "View hashtag: #jwt" [ref=f46e282] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23jwt&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e283]: "#JWT"
+                        - 'link "View hashtag: #softwaredevelopment" [ref=f46e285] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23softwaredevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e286]: "#SoftwareDevelopment"
+                    - generic [ref=f46e289]:
+                      - link [ref=f46e290] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - img "View image" [ref=f46e291]
+                      - generic [ref=f46e292]:
+                        - link [ref=f46e294] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/
+                          - img "View image" [ref=f46e295]
+                        - link [ref=f46e297] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/
+                          - img "View image" [ref=f46e298]
+                        - generic [ref=f46e299]:
+                          - link [ref=f46e300] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/
+                            - img "View image" [ref=f46e301]
+                          - link [ref=f46e302] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/
+                            - generic "2 more images" [ref=f46e303]:
+                              - paragraph [ref=f46e304]: "+2"
+                    - generic [ref=f46e305]:
+                      - generic [ref=f46e306]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e309] [cursor=pointer]':
+                          - generic [ref=f46e310]: "11"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e315] [cursor=pointer]:
+                        - generic [ref=f46e316]: "3"
+                      - button "Repost" [ref=f46e321] [cursor=pointer]
+                      - link "Send" [ref=f46e324] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e327] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "11 reactions" [ref=f46e328]
+                - listitem [ref=f46e334]:
+                  - generic [ref=f46e336]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e338]:
+                      - link [ref=f46e341] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e342]
+                      - generic [ref=f46e344]:
+                        - link [ref=f46e347] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e351]:
+                            - paragraph [ref=f46e354]: Om kumar Mishra
+                            - paragraph [ref=f46e356]: • 3rd+
+                        - paragraph [ref=f46e358]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e360]: 1mo
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e364] [cursor=pointer]:
+                        - generic [ref=f46e365]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e369] [cursor=pointer]
+                    - paragraph [ref=f46e372]:
+                      - generic [ref=f46e373]:
+                        - text: 🙏✨ Ganpati Bappa Morya! ✨🙏A beautiful celebration of faith, positivity, and new beginnings at
+                        - 'link "View company: Aashdit Technologies" [ref=f46e375] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/company/aashdit-technologies-llp/
+                          - strong [ref=f46e376]:
+                            - strong [ref=f46e378]: Aashdit Technologies
+                        - text: .🌸🪔Today, we came together to celebrate Ganesh Chaturthi with devotion and positivity, seeking Lord Ganesha’s blessings for wisdom, success, happiness, and prosperity.The celebration was filled with festive vibes, positive energy, and beautiful moments shared with our team. ❤️May Lord Ganesha remove all obstacles from our path and bless us with new opportunities, bigger dreams, and greater success. 🌺🐘Ganpati Bappa Morya! ❤️🙏
+                        - 'link "View hashtag: #ganeshchaturthi" [ref=f46e380] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23ganeshchaturthi&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e381]: "#GaneshChaturthi"
+                        - 'link "View hashtag: #ganpatibappamorya" [ref=f46e383] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23ganpatibappamorya&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e384]: "#GanpatiBappaMorya"
+                        - 'link "View hashtag: #aashdittechnologies" [ref=f46e386] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23aashdittechnologies&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e387]: "#AashditTechnologies"
+                        - 'link "View hashtag: #teamaashdit" [ref=f46e389] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23teamaashdit&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e390]: "#TeamAashdit"
+                        - 'link "View hashtag: #workplaceculture" [ref=f46e392] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23workplaceculture&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e393]: "#WorkplaceCulture"
+                        - 'link "View hashtag: #festivevibes" [ref=f46e395] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23festivevibes&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e396]: "#FestiveVibes"
+                        - 'link "View hashtag: #newbeginnings" [ref=f46e398] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23newbeginnings&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e399]: "#NewBeginnings"
+                        - 'link "View hashtag: #positivity" [ref=f46e401] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23positivity&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e402]: "#Positivity"
+                        - 'link "View hashtag: #success" [ref=f46e404] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23success&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e405]: "#Success"
+                    - generic [ref=f46e408]:
+                      - link [ref=f46e409] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - img "View image" [ref=f46e410]
+                      - generic [ref=f46e411]:
+                        - link [ref=f46e413] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/
+                          - img "View image" [ref=f46e414]
+                        - link [ref=f46e416] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/
+                          - img "View image" [ref=f46e417]
+                        - generic [ref=f46e418]:
+                          - link [ref=f46e419] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/
+                            - img "View image" [ref=f46e420]
+                          - link [ref=f46e421] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/
+                            - generic "2 more images" [ref=f46e422]:
+                              - paragraph [ref=f46e423]: "+2"
+                    - generic [ref=f46e424]:
+                      - generic [ref=f46e425]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e428] [cursor=pointer]':
+                          - generic [ref=f46e429]: "7"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e434] [cursor=pointer]
+                      - button "Repost" [ref=f46e437] [cursor=pointer]
+                      - link "Send" [ref=f46e440] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e443] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "7 reactions" [ref=f46e444]
+                - listitem [ref=f46e451]:
+                  - generic [ref=f46e453]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e455]:
+                      - link [ref=f46e458] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e459]
+                      - generic [ref=f46e461]:
+                        - link [ref=f46e464] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e468]:
+                            - paragraph [ref=f46e471]: Om kumar Mishra
+                            - paragraph [ref=f46e473]: • 3rd+
+                        - paragraph [ref=f46e475]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e477]: 2mo
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e481] [cursor=pointer]:
+                        - generic [ref=f46e482]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e486] [cursor=pointer]
+                    - paragraph [ref=f46e489]:
+                      - generic [ref=f46e490]:
+                        - strong [ref=f46e491]: Finally, I’m starting to understand Java Multithreading. 🧵
+                        - text: A few weeks ago, terms like synchronized, volatile, CAS, ExecutorService, CompletableFuture, ForkJoinPool and Virtual Threads felt completely overwhelming. Instead of just watching videos, I decided to
+                        - strong [ref=f46e493]: learn → code → organize → document
+                        - text: "everything. So I created a structured GitHub repository for my Java Multithreading journey. The repository contains lecture-wise: → Notes → Java programs → Practical examples → Important interview concepts → Revision material My goal is simple:"
+                        - strong [ref=f46e494]: make it useful for the next fresher who is struggling with Multithreading just like I was.
+                        - text: "📂 GitHub:"
+                        - link "Open https://lnkd.in/d3izE_P9" [ref=f46e496] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/safety/go/?url=https%3A%2F%2Flnkd%2Ein%2Fd3izE_P9&urlhash=XS_E&mt=r5YN9YcMgpsNYF4oGAGaqU2msMfGlCsqy0s5T6R_ErarPCikkdf5knZ072sO_UPSitT4kkanAqUmfGdsfGB8cdxcHUl2kIiVngP73p2IRKFl-gPqQMVS3psKtTdGIaKf3j6l_M8rzeD_94RQYhpZsa1Kef8qBbsLcCf5zgdFHmSnQQTGyzilu1FiBV1U3amoINLi6Fy3MNJG9CEHz8Z5syk&isSdui=true
+                          - strong [ref=f46e497]: https://lnkd.in/d3izE_P9
+                        - text: Big thanks to
+                        - strong [ref=f46e498]: Coder Army &
+                        - link "View Aditya Tandon’s profile" [ref=f46e500] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/adityatandon2/
+                          - strong [ref=f46e501]:
+                            - strong [ref=f46e503]:
+                              - strong [ref=f46e504]: Aditya Tandon
+                        - text: for the resources and explanations that helped me build this foundation. 🙏 I’ll keep updating it as I learn more.
+                        - strong [ref=f46e505]: Hope it helps someone. 🚀
+                        - 'link "View hashtag: #java" [ref=f46e507] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23java&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e508]: "#Java"
+                        - 'link "View hashtag: #multithreading" [ref=f46e510] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23multithreading&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e511]: "#Multithreading"
+                        - 'link "View hashtag: #javadeveloper" [ref=f46e513] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23javadeveloper&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e514]: "#JavaDeveloper"
+                        - 'link "View hashtag: #concurrency" [ref=f46e516] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23concurrency&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e517]: "#Concurrency"
+                        - 'link "View hashtag: #backenddevelopment" [ref=f46e519] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23backenddevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e520]: "#BackendDevelopment"
+                        - 'link "View hashtag: #learninginpublic" [ref=f46e522] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23learninginpublic&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e523]: "#LearningInPublic"
+                        - 'link "View hashtag: #github" [ref=f46e525] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23github&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e526]: "#GitHub"
+                        - 'link "View hashtag: #softwareengineer" [ref=f46e528] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23softwareengineer&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e529]: "#SoftwareEngineer"
+                        - 'link "View hashtag: #programming" [ref=f46e531] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23programming&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e532]: "#Programming"
+                        - 'link "View hashtag: #javainterview" [ref=f46e534] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23javainterview&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e535]: "#JavaInterview"
+                    - link "GitHub - Ommishra1221/Java-Multithreading github.com" [ref=f46e536] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/safety/go/?url=https%3A%2F%2Fgithub%2Ecom%2FOmmishra1221%2FJava-Multithreading&urlhash=S1AV&mt=mhrqPe0qVjvER_j8kYIPOmwtcqedZXm8S4sWN9Jh9K2C9hNrDcw2HbYB-A0_sq8oIvKo_pgNlCs65dKPs0lNUoSua3POhJ8TYDs9hEim5j4Ylfr64_Uy62seQySxcDjMpTWkugQUl926BRWSL5OErR2NzCulpgzJ9sDr7txu5p0Nnx8agKsrt7Xli73lsf5fU-tFyLB4WfTj6MMbyavjfCM&isSdui=true
+                      - generic [ref=f46e537]:
+                        - figure [aria-hidden] [ref=f46e538]
+                        - generic [ref=f46e539]:
+                          - paragraph [ref=f46e541]:
+                            - generic [ref=f46e542]:
+                              - generic [ref=f46e543]: GitHub - Ommishra1221/Java-Multithreading
+                              - text: GitHub - Ommishra1221/Java-Multithreading
+                          - paragraph [ref=f46e545]: github.com
+                    - generic [ref=f46e546]:
+                      - generic [ref=f46e547]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e550] [cursor=pointer]':
+                          - generic [ref=f46e551]: "7"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e556] [cursor=pointer]:
+                        - generic [ref=f46e557]: "1"
+                      - button "Repost" [ref=f46e562] [cursor=pointer]
+                      - link "Send" [ref=f46e565] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e568] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "7 reactions" [ref=f46e569]
+                - listitem [ref=f46e575]:
+                  - generic [ref=f46e577]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e579]:
+                      - link [ref=f46e582] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e583]
+                      - generic [ref=f46e585]:
+                        - link [ref=f46e588] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e592]:
+                            - paragraph [ref=f46e595]: Om kumar Mishra
+                            - paragraph [ref=f46e597]: • 3rd+
+                        - paragraph [ref=f46e599]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e601]: 3mo
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e605] [cursor=pointer]:
+                        - generic [ref=f46e606]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e610] [cursor=pointer]
+                    - paragraph [ref=f46e613]:
+                      - generic [ref=f46e614]:
+                        - text: Java Developer interview questions that I found important for freshers. 🚀 ✅Here are some questions every Java Developer should prepare:1. What is Hibernate?2. Difference between Authentication and Authorization.3. Difference between PUT and PATCH.4. What are HTTP Status Codes?5. What are HTTP Methods?6. Explain Exception Handling.7. What is OOP? Explain the four pillars.8. What is JSON?9. Explain your project.10. Difference between HashMap and ConcurrentHashMap.11. Explain equals() and hashCode().12. Difference between ArrayList and LinkedList.13. What are Java Streams?14. Difference between map() and flatMap().15. Difference between findFirst() and findAny().16. What is Dependency Injection?17. Difference between @Component, @Service, and @Repository.18. Difference between @RestController and @Controller.19. What is Spring Boot?20. What is REST API?💡 Bonus Scenario-Based Questions:How will you debug an OutOfMemoryError?How do you detect a memory leak?API works locally but fails in production. What will you check?High CPU usage but low traffic. What could be the reason?How do you identify and resolve a deadlock?I hope these questions help fellow freshers prepare better for Java Developer interviews. Feel free to add more questions in the comments so we can learn together.
+                        - 'link "View hashtag: #java" [ref=f46e617] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23java&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e618]: "#Java"
+                        - 'link "View hashtag: #javadeveloper" [ref=f46e620] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23javadeveloper&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e621]: "#JavaDeveloper"
+                        - 'link "View hashtag: #springboot" [ref=f46e623] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23springboot&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e624]: "#SpringBoot"
+                        - 'link "View hashtag: #hibernate" [ref=f46e626] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23hibernate&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e627]: "#Hibernate"
+                        - 'link "View hashtag: #interviewpreparation" [ref=f46e629] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23interviewpreparation&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e630]: "#InterviewPreparation"
+                        - 'link "View hashtag: #freshers" [ref=f46e632] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23freshers&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e633]: "#Freshers"
+                        - 'link "View hashtag: #backenddevelopment" [ref=f46e635] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23backenddevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e636]: "#BackendDevelopment"
+                        - 'link "View hashtag: #softwareengineer" [ref=f46e638] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23softwareengineer&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e639]: "#SoftwareEngineer"
+                        - 'link "View hashtag: #coding" [ref=f46e641] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23coding&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e642]: "#Coding"
+                    - generic [ref=f46e643]:
+                      - generic [ref=f46e644]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e647] [cursor=pointer]':
+                          - generic [ref=f46e648]: "7"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e653] [cursor=pointer]
+                      - button "Repost" [ref=f46e656] [cursor=pointer]
+                      - link "Send" [ref=f46e659] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e662] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "7 reactions" [ref=f46e663]
+                - listitem [ref=f46e669]:
+                  - generic [ref=f46e671]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e673]:
+                      - link [ref=f46e676] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e677]
+                      - generic [ref=f46e679]:
+                        - link [ref=f46e682] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e686]:
+                            - paragraph [ref=f46e689]: Om kumar Mishra
+                            - paragraph [ref=f46e691]: • 3rd+
+                        - paragraph [ref=f46e693]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e695]: 3mo
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e699] [cursor=pointer]:
+                        - generic [ref=f46e700]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e704] [cursor=pointer]
+                    - paragraph [ref=f46e707]:
+                      - generic [ref=f46e708]:
+                        - text: Grateful. Excited. Ready for the journey ahead. 🚀I'm happy to share that I've joined
+                        - 'link "View company: Aashdit Technologies" [ref=f46e710] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/company/aashdit-technologies-llp/
+                          - strong [ref=f46e711]:
+                            - strong [ref=f46e713]: Aashdit Technologies
+                        - text: as an Associate Software Engineer – Trainee.This opportunity marks an important milestone in my journey from being a student to stepping into the professional world. Every challenge, every rejection, every late-night learning session, and every small victory has contributed to this moment.A heartfelt thank you to everyone who believed in me, guided me, and supported me throughout this journey. Your encouragement has meant a lot.Now begins a new chapter of learning, building, collaborating, and continuously growing as a software engineer. Looking forward to contributing, learning from experienced professionals, and making the most of this opportunity.Here's to new beginnings! 🌱
+                        - 'link "View hashtag: #newbeginnings" [ref=f46e715] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23newbeginnings&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e716]: "#NewBeginnings"
+                        - 'link "View hashtag: #softwareengineer" [ref=f46e718] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23softwareengineer&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e719]: "#SoftwareEngineer"
+                        - 'link "View hashtag: #associatesoftwareengineer" [ref=f46e721] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23associatesoftwareengineer&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e722]: "#AssociateSoftwareEngineer"
+                        - 'link "View hashtag: #aashdittechnologies" [ref=f46e724] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23aashdittechnologies&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e725]: "#AashditTechnologies"
+                        - 'link "View hashtag: #careerjourney" [ref=f46e727] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23careerjourney&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e728]: "#CareerJourney"
+                        - 'link "View hashtag: #tech" [ref=f46e730] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23tech&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e731]: "#Tech"
+                        - 'link "View hashtag: #learningneverstops" [ref=f46e733] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23learningneverstops&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e734]: "#LearningNeverStops"
+                        - 'link "View hashtag: #java" [ref=f46e736] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23java&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e737]: "#Java"
+                        - 'link "View hashtag: #springboot" [ref=f46e739] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23springboot&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e740]: "#SpringBoot"
+                        - 'link "View hashtag: #softwaredevelopment" [ref=f46e742] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23softwaredevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e743]: "#SoftwareDevelopment"
+                        - 'link "View hashtag: #grateful" [ref=f46e745] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23grateful&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e746]: "#Grateful"
+                        - 'link "View hashtag: #growthmindset" [ref=f46e748] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23growthmindset&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e749]: "#GrowthMindset"
+                        - 'link "View hashtag: #linkedin" [ref=f46e751] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23linkedin&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e752]: "#LinkedIn"
+                    - generic [ref=f46e753]:
+                      - generic [ref=f46e754]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e757] [cursor=pointer]':
+                          - generic [ref=f46e758]: "9"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e763] [cursor=pointer]
+                      - button "Repost" [ref=f46e766] [cursor=pointer]
+                      - link "Send" [ref=f46e769] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e772] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "9 reactions" [ref=f46e773]
+                - listitem [ref=f46e779]:
+                  - generic [ref=f46e781]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e783]:
+                      - link [ref=f46e786] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e787]
+                      - generic [ref=f46e789]:
+                        - link [ref=f46e792] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e796]:
+                            - paragraph [ref=f46e799]: Om kumar Mishra
+                            - paragraph [ref=f46e801]: • 3rd+
+                        - paragraph [ref=f46e803]: Brand partnership • Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e805]: 10mo
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e809] [cursor=pointer]:
+                        - generic [ref=f46e810]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e814] [cursor=pointer]
+                    - paragraph [ref=f46e817]:
+                      - generic [ref=f46e818]:
+                        - text: "Consistency over comfort.305+ problems solved, 82-day longest streak — focused on building strong problem-solving skills and core CS fundamentals. 🚀If you want a hashtag version, use this at the end:"
+                        - 'link "View hashtag: #gfg" [ref=f46e820] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23gfg&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e821]: "#GFG"
+                        - 'link "View hashtag: #dsa" [ref=f46e823] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23dsa&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e824]: "#DSA"
+                        - 'link "View hashtag: #problemsolving" [ref=f46e826] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23problemsolving&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e827]: "#ProblemSolving"
+                        - 'link "View hashtag: #consistency" [ref=f46e829] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23consistency&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e830]: "#Consistency"
+                        - 'link "View hashtag: #codingjourney" [ref=f46e832] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23codingjourney&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e833]: "#CodingJourney"
+                        - 'link "View hashtag: #computerscience" [ref=f46e835] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23computerscience&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e836]: "#ComputerScience"
+                        - 'link "View hashtag: #learningeveryday" [ref=f46e838] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23learningeveryday&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e839]: "#LearningEveryday"
+                    - link [ref=f46e841] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/
+                      - figure [ref=f46e842]:
+                        - img "View image" [ref=f46e843]
+                    - generic [ref=f46e844]:
+                      - generic [ref=f46e845]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e848] [cursor=pointer]':
+                          - generic [ref=f46e849]: "6"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e854] [cursor=pointer]
+                      - button "Repost" [ref=f46e857] [cursor=pointer]
+                      - link "Send" [ref=f46e860] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e863] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "6 reactions" [ref=f46e864]
+                - listitem [ref=f46e870]:
+                  - generic [ref=f46e872]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e874]:
+                      - link [ref=f46e877] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e878]
+                      - generic [ref=f46e880]:
+                        - link [ref=f46e883] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e887]:
+                            - paragraph [ref=f46e890]: Om kumar Mishra
+                            - paragraph [ref=f46e892]: • 3rd+
+                        - paragraph [ref=f46e894]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e896]: 1yr • Edited
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e900] [cursor=pointer]:
+                        - generic [ref=f46e901]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e905] [cursor=pointer]
+                    - paragraph [ref=f46e908]:
+                      - generic [ref=f46e909]:
+                        - text: "🚀 Just build My eCommerce Website Project! 🛒 Excited to share a sneak peek of my latest web development project – a fully functional eCommerce platform designed with modern UI and smooth user experience in mind.✨ Key Features: ✅ Product browsing & filtering ✅ Responsive design ✅ Add-to-cart functionality ✅ Checkout flowThis project helped me strengthen my frontend skills and understand the dynamics of building real-world applications.🎥 Check out the short video demo below! I'd love to hear your feedback – open to collaborations and suggestions! 💬"
+                        - 'link "View hashtag: #webdevelopment" [ref=f46e911] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23webdevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e912]: "#WebDevelopment"
+                        - 'link "View hashtag: #ecommerce" [ref=f46e914] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23ecommerce&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e915]: "#eCommerce"
+                        - 'link "View hashtag: #frontenddevelopment" [ref=f46e917] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23frontenddevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e918]: "#FrontendDevelopment"
+                        - 'link "View hashtag: #reactjs" [ref=f46e920] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23reactjs&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e921]: "#ReactJS"
+                        - text: (or relevant tech)
+                        - 'link "View hashtag: #html" [ref=f46e923] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23html&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e924]: "#HTML"
+                        - 'link "View hashtag: #css" [ref=f46e926] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23css&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e927]: "#CSS"
+                        - 'link "View hashtag: #javascript" [ref=f46e929] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23javascript&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e930]: "#JavaScript"
+                        - 'link "View hashtag: #portfolioproject" [ref=f46e932] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23portfolioproject&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e933]: "#PortfolioProject"
+                        - 'link "View hashtag: #linkedin" [ref=f46e935] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23linkedin&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e936]: "#LinkedIn"
+                    - link "Play video" [ref=f46e940] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/feed/update/urn:li:activity:7333713032742612992/
+                    - generic [ref=f46e943]:
+                      - generic [ref=f46e944]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e947] [cursor=pointer]':
+                          - generic [ref=f46e948]: "12"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e953] [cursor=pointer]:
+                        - generic [ref=f46e954]: "2"
+                      - button "Repost" [ref=f46e959] [cursor=pointer]
+                      - link "Send" [ref=f46e962] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e965] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "12 reactions" [ref=f46e966]
+                - listitem [ref=f46e972]:
+                  - generic [ref=f46e974]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e976]:
+                      - link [ref=f46e979] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e980]
+                      - generic [ref=f46e982]:
+                        - link [ref=f46e985] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e989]:
+                            - paragraph [ref=f46e992]: Om kumar Mishra
+                            - paragraph [ref=f46e994]: • 3rd+
+                        - paragraph [ref=f46e996]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e998]: 1yr
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e1002] [cursor=pointer]:
+                        - generic [ref=f46e1003]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e1007] [cursor=pointer]
+                    - paragraph [ref=f46e1010]:
+                      - generic [ref=f46e1011]:
+                        - text: "I’ve successfully completed \"The Complete Full-Stack Web Development Bootcamp\" by Dr. Angela Yu on Udemy. Over the course of 61.5 hours, I gained hands-on experience with:💻 HTML, CSS, JavaScript ⚙️ Node.js, Express.js, MongoDB 🌐 REST APIs, Authentication 🛠️ EJS, Git & GitHub, and more!This journey has significantly boosted my understanding of building full-stack applications from scratch, and I'm excited to apply these skills in real-world projects.Big thanks to Angela Yu for the amazing course and to Udemy for providing such quality content.📜 Certificate: [Insert Certificate URL here —"
+                        - link "Open https://lnkd.in/gUHCYdGM" [ref=f46e1013] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/safety/go/?url=https%3A%2F%2Flnkd%2Ein%2FgUHCYdGM&urlhash=SGRs&mt=P7cxCg2c10YpOm9mwoGDjy2AlLo02xuCrB8LQ9VLAowHQuDEdvNsqRm2aEZEQEvODrhbnCU5UMpe-SWmsjWnk2HGSNqjX4CZs9qJkMHndgXoXSjwH4GP3ReTx3UnXUFBHm9cJelKhoWeorzh22s75w3g8v4XXsINm9sndN7zUBRJsdiK3yE454tqHeq1AJaXbU3iq_rTfDFAjyvvfYgKm-U&isSdui=true
+                          - strong [ref=f46e1014]: https://lnkd.in/gUHCYdGM
+                        - text: "]"
+                        - 'link "View hashtag: #webdevelopment" [ref=f46e1016] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23webdevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1017]: "#WebDevelopment"
+                        - 'link "View hashtag: #fullstackdeveloper" [ref=f46e1019] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23fullstackdeveloper&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1020]: "#FullStackDeveloper"
+                        - 'link "View hashtag: #codingjourney" [ref=f46e1022] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23codingjourney&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1023]: "#CodingJourney"
+                        - 'link "View hashtag: #udemy" [ref=f46e1025] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23udemy&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1026]: "#Udemy"
+                        - 'link "View hashtag: #angelayu" [ref=f46e1028] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23angelayu&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1029]: "#AngelaYu"
+                        - 'link "View hashtag: #nodejs" [ref=f46e1031] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23nodejs&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1032]: "#NodeJS"
+                        - 'link "View hashtag: #mongodb" [ref=f46e1034] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23mongodb&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1035]: "#MongoDB"
+                        - 'link "View hashtag: #react" [ref=f46e1037] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23react&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1038]: "#React"
+                        - 'link "View hashtag: #html" [ref=f46e1040] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23html&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1041]: "#HTML"
+                        - 'link "View hashtag: #css" [ref=f46e1043] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23css&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1044]: "#CSS"
+                        - 'link "View hashtag: #javascript" [ref=f46e1046] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23javascript&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1047]: "#JavaScript"
+                        - 'link "View hashtag: #learningneverstops" [ref=f46e1049] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23learningneverstops&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1050]: "#LearningNeverStops"
+                        - 'link "View hashtag: #techcareer" [ref=f46e1052] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23techcareer&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1053]: "#TechCareer"
+                    - link [ref=f46e1055] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/
+                      - figure [ref=f46e1056]:
+                        - img "View image" [ref=f46e1057]
+                    - generic [ref=f46e1058]:
+                      - generic [ref=f46e1059]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e1062] [cursor=pointer]':
+                          - generic [ref=f46e1063]: "13"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e1068] [cursor=pointer]
+                      - button "Repost" [ref=f46e1071] [cursor=pointer]
+                      - link "Send" [ref=f46e1074] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e1077] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "13 reactions" [ref=f46e1078]
+                - listitem [ref=f46e1084]:
+                  - generic [ref=f46e1086]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e1088]:
+                      - link [ref=f46e1091] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e1092]
+                      - generic [ref=f46e1094]:
+                        - link [ref=f46e1097] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e1101]:
+                            - paragraph [ref=f46e1104]: Om kumar Mishra
+                            - paragraph [ref=f46e1106]: • 3rd+
+                        - paragraph [ref=f46e1108]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e1110]: 2yr
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e1114] [cursor=pointer]:
+                        - generic [ref=f46e1115]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e1119] [cursor=pointer]
+                    - paragraph [ref=f46e1122]:
+                      - generic [ref=f46e1123]:
+                        - text: "---📜 Proud to share that I've completed the \"Flutter & Dart - The Complete Guide [2024 Edition]\" course on Udemy! 🎉This comprehensive program has equipped me with the skills to build beautiful and high-performance mobile applications. Excited to leverage these new capabilities in my projects and continue growing as a developer."
+                        - 'link "View hashtag: #flutter" [ref=f46e1125] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23flutter&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1126]: "#Flutter"
+                        - 'link "View hashtag: #dart" [ref=f46e1128] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23dart&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1129]: "#Dart"
+                        - 'link "View hashtag: #mobiledevelopment" [ref=f46e1131] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23mobiledevelopment&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1132]: "#MobileDevelopment"
+                        - 'link "View hashtag: #udemy" [ref=f46e1134] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23udemy&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1135]: "#Udemy"
+                        - 'link "View hashtag: #continuouslearning" [ref=f46e1137] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=%23continuouslearning&origin=HASH_TAG_FROM_FEED
+                          - strong [ref=f46e1138]: "#ContinuousLearning"
+                        - text: "---Feel free to personalize it further!"
+                    - link [ref=f46e1140] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/
+                      - figure [ref=f46e1141]:
+                        - img "View image" [ref=f46e1142]
+                    - generic [ref=f46e1143]:
+                      - generic [ref=f46e1144]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e1147] [cursor=pointer]':
+                          - generic [ref=f46e1148]: "6"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e1153] [cursor=pointer]
+                      - button "Repost" [ref=f46e1156] [cursor=pointer]
+                      - link "Send" [ref=f46e1159] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e1162] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "6 reactions" [ref=f46e1163]
+                - listitem [ref=f46e1169]:
+                  - generic [ref=f46e1171]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e1173]:
+                      - link [ref=f46e1176] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e1177]
+                      - generic [ref=f46e1179]:
+                        - link [ref=f46e1182] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e1186]:
+                            - paragraph [ref=f46e1189]: Om kumar Mishra
+                            - paragraph [ref=f46e1191]: • 3rd+
+                        - paragraph [ref=f46e1193]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e1195]: 2yr
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e1199] [cursor=pointer]:
+                        - generic [ref=f46e1200]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e1204] [cursor=pointer]
+                    - paragraph [ref=f46e1207]:
+                      - generic [ref=f46e1208]:
+                        - text: "I just completed Accenture North America's Data Analytics and Visualization on @[Forage](urn:li:organization:68514998). In the simulation I: * Completed a simulation focused on advising a hypothetical social media client as a Data Analyst at Accenture * Cleaned, modelled and analyzed 7 datasets to uncover insights into content trends to inform strategic decisions * Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholdersCheck out the simulation here:"
+                        - link "Open https://lnkd.in/g83QbMce" [ref=f46e1210] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/safety/go/?url=https%3A%2F%2Flnkd%2Ein%2Fg83QbMce&urlhash=ZlQu&mt=owWlriG-c__wRDRe7hvV1ulN54Pc4w-fF7mEyWrT278i32ex8PDUHX17qginxjSp1cL3Engh4oxPjjD3c5AXZHRyAQXOjefME5-_BLQqKsX45WhPSqyqOEbQ1bbW_h0Wv7P3HyHwqwdGsuqfYcWb0iC-b0qplG18g7_l0y8QMw2BKBUph_UePnZUNbhjkSMNKgIQASeJouvjHF4L_-SRiLU&isSdui=true
+                          - strong [ref=f46e1211]: https://lnkd.in/g83QbMce
+                    - generic [ref=f46e1212]:
+                      - generic [ref=f46e1215]:
+                        - status [ref=f46e1216]
+                        - list [ref=f46e1217]:
+                          - listitem [ref=f46e1218]:
+                            - button "Page 1 of 1" [ref=f46e1219] [cursor=pointer]:
+                              - progressbar [ref=f46e1223]
+                      - generic [ref=f46e1226]:
+                        - paragraph [ref=f46e1228]: Forage certificate
+                        - paragraph [ref=f46e1230]: ·
+                        - paragraph [ref=f46e1232]: 1 page
+                      - button "Full screen" [ref=f46e1234] [cursor=pointer]
+                    - generic [ref=f46e1237]:
+                      - generic [ref=f46e1238]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e1241] [cursor=pointer]':
+                          - generic [ref=f46e1242]: "7"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e1247] [cursor=pointer]
+                      - button "Repost" [ref=f46e1250] [cursor=pointer]
+                      - link "Send" [ref=f46e1253] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e1256] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "7 reactions" [ref=f46e1257]
+                - listitem [ref=f46e1263]:
+                  - generic [ref=f46e1265]:
+                    - heading "Feed post" [level=2]
+                    - generic [ref=f46e1267]:
+                      - link [ref=f46e1270] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                        - figure [ref=f46e1271]
+                      - generic [ref=f46e1273]:
+                        - link [ref=f46e1276] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                          - generic "Om kumar Mishra 3rd+" [ref=f46e1280]:
+                            - paragraph [ref=f46e1283]: Om kumar Mishra
+                            - paragraph [ref=f46e1285]: • 3rd+
+                        - paragraph [ref=f46e1287]: Associate Software Engineer | Spring Boot · REST APIs | Full-Stack Developer | B.Tech CSE ’26 | 300+ DSA | Open to Opportunities 🚀
+                        - paragraph [ref=f46e1289]: 2yr
+                        - link "Om kumar Mishra 3rd+":
+                          - /url: https://www.linkedin.com/in/om-kumar-mishra-b6677625b/
+                      - button "Follow Om kumar Mishra" [ref=f46e1293] [cursor=pointer]:
+                        - generic [ref=f46e1294]: Follow
+                      - button "Open control menu for post by Om kumar Mishra" [ref=f46e1298] [cursor=pointer]
+                    - paragraph [ref=f46e1301]:
+                      - generic [ref=f46e1302]:
+                        - text: "I’m happy to share that I’ve obtained a new certification: SQL from"
+                        - 'link "View company: HackerRank" [ref=f46e1304] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/company/hackerrank/
+                          - strong [ref=f46e1305]:
+                            - strong [ref=f46e1307]: HackerRank
+                        - text: "!"
+                    - generic [ref=f46e1308]:
+                      - link [ref=f46e1309] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - figure [ref=f46e1310]:
+                          - img "View celebration image" [ref=f46e1311]
+                      - link [ref=f46e1312] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/feed/update/urn:li:activity:7182261859423600640/
+                        - paragraph [ref=f46e1313]: Celebrating a new certification
+                    - generic [ref=f46e1314]:
+                      - generic [ref=f46e1315]:
+                        - 'button "Reaction button state: no reaction" [ref=f46e1318] [cursor=pointer]':
+                          - generic [ref=f46e1319]: "5"
+                        - button "Open reactions menu"
+                      - button "Comment" [ref=f46e1324] [cursor=pointer]:
+                        - generic [ref=f46e1325]: "1"
+                      - button "Repost" [ref=f46e1330] [cursor=pointer]
+                      - link "Send" [ref=f46e1333] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                      - link [ref=f46e1336] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/
+                        - generic "5 reactions" [ref=f46e1337]
+                - progressbar "In progress" [ref=f46e1342]
+          - complementary "Aside" [ref=f46e1343]:
+            - generic [ref=f46e1349]:
+              - heading "People you may know" [level=2] [ref=f46e1352]
+              - generic [ref=f46e1354]:
+                - generic [ref=f46e1356]:
+                  - generic [ref=f46e1357]:
+                    - link:
+                      - /url: https://www.linkedin.com/in/abhishek-jethi-8a3470210/
+                    - generic [ref=f46e1358]:
+                      - link [ref=f46e1359] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/abhishek-jethi-8a3470210/
+                        - figure [aria-hidden] [ref=f46e1360]
+                      - generic [ref=f46e1361]:
+                        - link:
+                          - /url: https://www.linkedin.com/in/abhishek-jethi-8a3470210/
+                        - generic [ref=f46e1362]:
+                          - link:
+                            - /url: https://www.linkedin.com/in/abhishek-jethi-8a3470210/
+                          - generic [ref=f46e1363]:
+                            - link:
+                              - /url: https://www.linkedin.com/in/abhishek-jethi-8a3470210/
+                            - paragraph [ref=f46e1364]:
+                              - link:
+                                - /url: https://www.linkedin.com/in/abhishek-jethi-8a3470210/
+                              - link "Abhishek Jethi" [ref=f46e1365] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/in/abhishek-jethi-8a3470210/
+                          - paragraph [ref=f46e1366]: · 3rd+
+                        - paragraph [ref=f46e1368]: Software Engineer
+                  - button "Invite Abhishek Jethi to connect" [ref=f46e1372] [cursor=pointer]:
+                    - generic [ref=f46e1373]: Connect
+                - generic [ref=f46e1378]:
+                  - generic [ref=f46e1379]:
+                    - link:
+                      - /url: https://www.linkedin.com/in/harsh-mishra-011b3b228/
+                    - generic [ref=f46e1380]:
+                      - link [ref=f46e1381] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/harsh-mishra-011b3b228/
+                        - figure [aria-hidden] [ref=f46e1382]
+                      - generic [ref=f46e1383]:
+                        - link:
+                          - /url: https://www.linkedin.com/in/harsh-mishra-011b3b228/
+                        - generic [ref=f46e1384]:
+                          - link:
+                            - /url: https://www.linkedin.com/in/harsh-mishra-011b3b228/
+                          - generic [ref=f46e1385]:
+                            - link:
+                              - /url: https://www.linkedin.com/in/harsh-mishra-011b3b228/
+                            - paragraph [ref=f46e1386]:
+                              - link:
+                                - /url: https://www.linkedin.com/in/harsh-mishra-011b3b228/
+                              - link [ref=f46e1387] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/in/harsh-mishra-011b3b228/
+                                - text: Harsh Mishra
+                                - img "Verified" [ref=f46e1388]
+                          - paragraph [ref=f46e1390]: · 3rd+
+                        - paragraph [ref=f46e1392]: "HR Shared Services || Operations || Global HR || Onboarding|| Background Verification | Screening | Sourcing | HR | Human Resource #Onboarding #HROperations #HR #HRIS #BGV"
+                  - button "Invite Harsh Mishra to connect" [ref=f46e1396] [cursor=pointer]:
+                    - generic [ref=f46e1397]: Connect
+                - generic [ref=f46e1402]:
+                  - generic [ref=f46e1403]:
+                    - link:
+                      - /url: https://www.linkedin.com/in/abhidp5773/
+                    - generic [ref=f46e1404]:
+                      - link [ref=f46e1405] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/abhidp5773/
+                        - figure [aria-hidden] [ref=f46e1406]
+                      - generic [ref=f46e1407]:
+                        - link:
+                          - /url: https://www.linkedin.com/in/abhidp5773/
+                        - generic [ref=f46e1408]:
+                          - link:
+                            - /url: https://www.linkedin.com/in/abhidp5773/
+                          - generic [ref=f46e1409]:
+                            - link:
+                              - /url: https://www.linkedin.com/in/abhidp5773/
+                            - paragraph [ref=f46e1410]:
+                              - link:
+                                - /url: https://www.linkedin.com/in/abhidp5773/
+                              - link "Abhishek Paygude" [ref=f46e1411] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/in/abhidp5773/
+                          - paragraph [ref=f46e1412]: · 3rd+
+                        - paragraph [ref=f46e1414]: Software Engineer at Tata Consultancy Services
+                  - button "Invite Abhishek Paygude to connect" [ref=f46e1418] [cursor=pointer]:
+                    - generic [ref=f46e1419]: Connect
+                - generic [ref=f46e1424]:
+                  - generic [ref=f46e1425]:
+                    - link:
+                      - /url: https://www.linkedin.com/in/sheetal-rawat-4b9159143/
+                    - generic [ref=f46e1426]:
+                      - link [ref=f46e1427] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/sheetal-rawat-4b9159143/
+                        - figure [aria-hidden] [ref=f46e1428]
+                      - generic [ref=f46e1429]:
+                        - link:
+                          - /url: https://www.linkedin.com/in/sheetal-rawat-4b9159143/
+                        - generic [ref=f46e1430]:
+                          - link:
+                            - /url: https://www.linkedin.com/in/sheetal-rawat-4b9159143/
+                          - generic [ref=f46e1431]:
+                            - link:
+                              - /url: https://www.linkedin.com/in/sheetal-rawat-4b9159143/
+                            - paragraph [ref=f46e1432]:
+                              - link:
+                                - /url: https://www.linkedin.com/in/sheetal-rawat-4b9159143/
+                              - link [ref=f46e1433] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/in/sheetal-rawat-4b9159143/
+                                - text: Sheetal Rawat
+                                - img "Verified" [ref=f46e1434]
+                          - paragraph [ref=f46e1436]: · 3rd+
+                        - paragraph [ref=f46e1438]: HRBP at Tata Consultancy Services
+                  - button "Invite Sheetal Rawat to connect" [ref=f46e1442] [cursor=pointer]:
+                    - generic [ref=f46e1443]: Connect
+                - generic [ref=f46e1448]:
+                  - generic [ref=f46e1449]:
+                    - link:
+                      - /url: https://www.linkedin.com/in/abhinav-srivastava0305/
+                    - generic [ref=f46e1450]:
+                      - link [ref=f46e1451] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/abhinav-srivastava0305/
+                        - figure [aria-hidden] [ref=f46e1452]
+                      - generic [ref=f46e1453]:
+                        - link:
+                          - /url: https://www.linkedin.com/in/abhinav-srivastava0305/
+                        - generic [ref=f46e1454]:
+                          - link:
+                            - /url: https://www.linkedin.com/in/abhinav-srivastava0305/
+                          - generic [ref=f46e1455]:
+                            - link:
+                              - /url: https://www.linkedin.com/in/abhinav-srivastava0305/
+                            - paragraph [ref=f46e1456]:
+                              - link:
+                                - /url: https://www.linkedin.com/in/abhinav-srivastava0305/
+                              - link [ref=f46e1457] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/in/abhinav-srivastava0305/
+                                - text: Abhinav Srivastava
+                                - img "Verified" [ref=f46e1458]
+                          - paragraph [ref=f46e1460]: · 3rd+
+                        - paragraph [ref=f46e1462]: Software Engineer at Tata Consultancy Services
+                  - button "Invite Abhinav Srivastava to connect" [ref=f46e1466] [cursor=pointer]:
+                    - generic [ref=f46e1467]: Connect
+                - button "Show more" [ref=f46e1472] [cursor=pointer]
+          - generic "Footer" [ref=f46e1479]:
+            - generic [ref=f46e1482]:
+              - generic [ref=f46e1483]:
+                - navigation [ref=f46e1484]:
+                  - link [ref=f46e1485] [cursor=pointer]:
+                    - /url: https://about.linkedin.com/
+                    - paragraph [ref=f46e1486]: About
+                  - link [ref=f46e1487] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/accessibility/
+                    - paragraph [ref=f46e1488]: Accessibility
+                  - link [ref=f46e1489] [cursor=pointer]:
+                    - /url: https://business.linkedin.com/talent-solutions?trk=flagship_nav&veh=li-footer-lts-control&src=li-footer
+                    - paragraph [ref=f46e1490]: Talent Solutions
+                  - link [ref=f46e1491] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/legal/professional-community-policies/
+                    - paragraph [ref=f46e1492]: Community Guidelines
+                  - link [ref=f46e1493] [cursor=pointer]:
+                    - /url: https://careers.linkedin.com/
+                    - paragraph [ref=f46e1494]: Careers
+                  - link [ref=f46e1495] [cursor=pointer]:
+                    - /url: https://business.linkedin.com/advertise?trk=n_nav_lms_f&src=li-footer
+                    - paragraph [ref=f46e1496]: Marketing Solutions
+                  - button [ref=f46e1497] [cursor=pointer]:
+                    - paragraph [ref=f46e1499]: Privacy & Terms
+                  - link [ref=f46e1501] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/help/linkedin/answer/62931/
+                    - paragraph [ref=f46e1502]: Ad Choices
+                  - link [ref=f46e1503] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/ad/start/?trk=n_nav_ads_rr
+                    - paragraph [ref=f46e1504]: Advertising
+                  - link [ref=f46e1505] [cursor=pointer]:
+                    - /url: https://business.linkedin.com/sales-solutions?trk=flagship_nav&veh=li-footer-lss-control&src=li-footer
+                    - paragraph [ref=f46e1506]: Sales Solutions
+                  - link [ref=f46e1507] [cursor=pointer]:
+                    - /url: https://mobile.linkedin.com/
+                    - paragraph [ref=f46e1508]: Mobile
+                  - link [ref=f46e1509] [cursor=pointer]:
+                    - /url: https://business.linkedin.com/grow?src=li-footer
+                    - paragraph [ref=f46e1510]: Small Business
+                  - link [ref=f46e1511] [cursor=pointer]:
+                    - /url: https://safety.linkedin.com/
+                    - paragraph [ref=f46e1512]: Safety Center
+                - paragraph [ref=f46e1514]: LinkedIn Corporation © 2026
+              - generic [ref=f46e1515]:
+                - list [ref=f46e1516]:
+                  - listitem [ref=f46e1517]:
+                    - generic [ref=f46e1520]:
+                      - link [ref=f46e1521] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/help/linkedin/
+                        - paragraph [ref=f46e1522]: Questions?
+                      - paragraph [ref=f46e1523]: Visit our Help Center.
+                  - listitem [ref=f46e1524]:
+                    - generic [ref=f46e1527]:
+                      - link [ref=f46e1528] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/mypreferences/d/
+                        - paragraph [ref=f46e1529]: Manage your account and privacy
+                      - paragraph [ref=f46e1530]: Go to your Settings.
+                  - listitem [ref=f46e1531]:
+                    - generic [ref=f46e1534]:
+                      - link [ref=f46e1535] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/help/linkedin/answer/a1339724/
+                        - paragraph [ref=f46e1536]: Recommendation transparency
+                      - paragraph [ref=f46e1537]: Learn more about Recommended Content.
+                - generic [ref=f46e1539]:
+                  - paragraph [ref=f46e1541]: Select language
+                  - combobox "Select language" [ref=f46e1543] [cursor=pointer]:
+                    - option "العربية (Arabic)"
+                    - option "বাংলা (Bangla)"
+                    - option "Čeština (Czech)"
+                    - option "Dansk (Danish)"
+                    - option "Deutsch (German)"
+                    - option "Ελληνικά (Greek)"
+                    - option "English (English)" [selected]
+                    - option "Español (Spanish)"
+                    - option "فارسی (Persian)"
+                    - option "Suomi (Finnish)"
+                    - option "Français (French)"
+                    - option "हिंदी (Hindi)"
+                    - option "Magyar (Hungarian)"
+                    - option "Bahasa Indonesia (Indonesian)"
+                    - option "Italiano (Italian)"
+                    - option "עברית (Hebrew)"
+                    - option "日本語 (Japanese)"
+                    - option "한국어 (Korean)"
+                    - option "मराठी (Marathi)"
+                    - option "Bahasa Malaysia (Malay)"
+                    - option "Nederlands (Dutch)"
+                    - option "Norsk (Norwegian)"
+                    - option "ਪੰਜਾਬੀ (Punjabi)"
+                    - option "Polski (Polish)"
+                    - option "Português (Portuguese)"
+                    - option "Română (Romanian)"
+                    - option "Русский (Russian)"
+                    - option "Svenska (Swedish)"
+                    - option "తెలుగు (Telugu)"
+                    - option "ภาษาไทย (Thai)"
+                    - option "Tagalog (Tagalog)"
+                    - option "Türkçe (Turkish)"
+                    - option "Українська (Ukrainian)"
+                    - option "Tiếng Việt (Vietnamese)"
+                    - option "简体中文 (Chinese (Simplified))"
+                    - option "正體中文 (Chinese (Traditional))"

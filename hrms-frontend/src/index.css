@@ -1934,6 +1934,53 @@ th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
   .auth-mobile-brand { display: flex; }
 }
 
+/* Probation extends the existing token/component system; all rules are module-scoped. */
+.probation-page { min-width: 0; }
+.probation-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); margin: 0; }
+.probation-metrics dt { color: var(--color-fg-muted); font-size: var(--fs-base); }
+.probation-metrics dd { margin: var(--space-2) 0 0; font-size: var(--fs-2xl); font-variant-numeric: tabular-nums; }
+.probation-filters { display: flex; align-items: end; flex-wrap: wrap; gap: var(--space-4); }
+.probation-filters .form-field { flex: 1 1 220px; }
+.probation-pagination { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-3); padding: var(--space-4); color: var(--color-fg-muted); }
+.probation-reviewer-picker { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.probation-reviewer-picker > .probation-pagination, .probation-reviewer-picker > [role='alert'] { grid-column: 1 / -1; }
+.probation-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.probation-criterion { padding: var(--space-5) 0; border-bottom: 1px solid var(--color-border); }
+.probation-criterion:first-child { padding-top: 0; }
+.probation-criterion h3 { margin: 0 0 var(--space-4); font-size: var(--fs-lg); }
+.probation-rating-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-4); }
+.probation-fieldset > .form-grid { margin-top: var(--space-5); }
+.probation-section { margin-top: var(--space-4); }
+.probation-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.probation-evidence { display: flex; flex-direction: column; gap: var(--space-3); overflow-wrap: anywhere; }
+.probation-evidence h3 { margin: 0 0 var(--space-2); font-size: var(--fs-base); }
+.probation-evidence p { margin: 0; }
+.probation-evidence-list { margin: 0; }
+.probation-evidence-list > div { padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); }
+.probation-evidence-list dt { font-weight: 600; }
+.probation-evidence-list dd { margin: var(--space-2) 0 0; white-space: pre-wrap; }
+.probation-history { margin: 0; padding-left: var(--space-5); }
+.probation-history > li { padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); }
+.probation-history__heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); }
+.probation-history time { color: var(--color-fg-muted); font-size: var(--fs-sm); }
+.probation-page summary { cursor: pointer; padding: var(--space-2) 0; font-weight: 600; }
+.probation-page details .probation-evidence { margin-top: var(--space-4); }
+.probation-error { margin-bottom: var(--space-4); }
+.probation-error ul { padding-left: var(--space-5); }
+.probation-table .badge { white-space: normal; max-width: 100%; }
+.probation-page .badge-DRAFT { background: var(--color-muted); color: var(--color-fg-muted); }
+.probation-page .badge-PENDING_MANAGER_EVALUATION, .probation-page .badge-MANAGER_EVALUATION_IN_PROGRESS,
+.probation-page .badge-PENDING_HR_REVIEW, .probation-page .badge-PENDING_ADMIN_APPROVAL { background: var(--color-info-soft); color: var(--color-info); }
+.probation-page .badge-RETURNED_TO_MANAGER, .probation-page .badge-EXTENDED { background: var(--color-warning-soft); color: var(--color-warning); }
+.probation-page .badge-CONFIRMED { background: var(--color-success-soft); color: var(--color-success); }
+.probation-page .badge-NOT_CONFIRMED { background: var(--color-danger-soft); color: var(--color-danger); }
+@media (max-width: 1100px) { .probation-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .probation-metrics, .probation-rating-grid, .probation-reviewer-picker { grid-template-columns: minmax(0, 1fr); }
+  .probation-page .form-card { padding: var(--space-4); }
+  .probation-table td { overflow-wrap: anywhere; }
+}
+
 /* ---- Printing a payslip shouldn't print the chrome ---- */
 @media print {
   .sidebar,

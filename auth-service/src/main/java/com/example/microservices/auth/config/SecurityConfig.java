@@ -78,6 +78,7 @@ public class SecurityConfig {
                     // authority "ROLE_ADMIN" that the JWT filter read out of
                     // the token - so an HR or EMPLOYEE token gets 403 here.
                     .requestMatchers("/auth/users/**").hasRole("ADMIN")
+                    .requestMatchers("/auth/probation-reviewers/**").hasAnyRole("ADMIN", "HR")
                     // /auth/me and anything added later: must be logged in.
                     .anyRequest().authenticated())
             // Without this, an unauthenticated request gets the DEFAULT

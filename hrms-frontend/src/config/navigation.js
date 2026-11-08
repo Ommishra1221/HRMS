@@ -1,4 +1,4 @@
-import { Banknote, CalendarDays, Clock, IdCard, LayoutDashboard, Users, UsersRound } from 'lucide-react'
+import { Banknote, CalendarDays, ClipboardCheck, Clock, IdCard, LayoutDashboard, Users, UsersRound } from 'lucide-react'
 
 // =============================================================================
 // Navigation config - the single source of truth for the sidebar AND topbar.
@@ -37,6 +37,7 @@ export const NAV_GROUPS = [
       { to: '/employees', label: 'Employees', icon: Users, roles: ['ADMIN', 'HR'] },
       { to: '/leaves', label: 'Leave', icon: CalendarDays, roles: ['ADMIN', 'HR'] },
       { to: '/attendance', label: 'Attendance', icon: Clock, roles: ['ADMIN', 'HR'] },
+      { to: '/probation', label: 'Probation', icon: ClipboardCheck, roles: ['ADMIN', 'HR'] },
     ],
   },
   {
@@ -54,6 +55,8 @@ export const NAV_GROUPS = [
       { to: '/leaves', label: 'My Leave', icon: CalendarDays, roles: ['EMPLOYEE'] },
       { to: '/attendance', label: 'My Attendance', icon: Clock, roles: ['EMPLOYEE'] },
       { to: '/payrolls', label: 'My Payroll', icon: Banknote, roles: ['EMPLOYEE'] },
+      { to: '/my-probation', label: 'My Probation', icon: ClipboardCheck, roles: ['EMPLOYEE'] },
+      { to: '/manager-evaluations', label: 'Assigned evaluations', icon: ClipboardCheck, roles: ['EMPLOYEE'], requiresAssignment: true },
     ],
   },
   {
@@ -64,10 +67,10 @@ export const NAV_GROUPS = [
 ]
 
 /** The nav for one role: groups whose `roles` include it, with items filtered too. */
-export function navGroupsFor(role) {
+export function navGroupsFor(role, capabilities = {}) {
   return NAV_GROUPS.map((group) => ({
     ...group,
-    items: group.items.filter((item) => !item.roles || item.roles.includes(role)),
+    items: group.items.filter((item) => (!item.roles || item.roles.includes(role)) && (!item.requiresAssignment || capabilities.hasAssignments)),
   })).filter((group) => group.items.length > 0 && (!group.roles || group.roles.includes(role)))
 }
 
@@ -82,6 +85,9 @@ const SECTION_TITLES = {
   me: 'My Profile',
   users: 'Users',
   login: 'Sign in',
+  probation: 'Probation',
+  'my-probation': 'My Probation',
+  'manager-evaluations': 'Assigned evaluations',
 }
 
 // What the same route is called for an EMPLOYEE (self-service wording).

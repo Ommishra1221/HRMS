@@ -44,6 +44,13 @@ export function canAccess(pathname, role) {
   const isForm = second === 'new' || (segments.length === 3 && third === 'edit')
 
   switch (section) {
+    case 'probation':
+      if (second === 'assessments' && third && third !== 'new' && segments.length === 3) return true
+      return third === 'new' || segments[3] === 'edit' ? role === ROLES.HR : role === ROLES.ADMIN || role === ROLES.HR
+    case 'my-probation':
+      return role === ROLES.EMPLOYEE
+    case 'manager-evaluations':
+      return true // The server scopes this queue to the verified account's assignments.
     // "/" redirects to /dashboard.
     case undefined:
       return true

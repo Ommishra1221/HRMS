@@ -3,6 +3,7 @@ import { LogOut } from 'lucide-react'
 import { navGroupsFor } from '../../config/navigation'
 import { useAuth } from '../../context/AuthContext'
 import { initials } from '../../utils/format'
+import { useProbationQuery } from '../../hooks/useProbation'
 
 // =============================================================================
 // Sidebar - primary navigation.
@@ -25,7 +26,8 @@ function NavItems({ onNavigate }) {
   // UX only - the backend still refuses anything the role may not do.
   const { user } = useAuth()
   const role = user?.roles?.[0]
-  const groups = navGroupsFor(role)
+  const capabilities = useProbationQuery('/capabilities', {}, role === 'EMPLOYEE')
+  const groups = navGroupsFor(role, capabilities.data || {})
 
   return (
     <>

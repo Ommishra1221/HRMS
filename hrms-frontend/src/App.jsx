@@ -26,6 +26,10 @@ import PayrollDetail from './pages/PayrollDetail.jsx'
 import MyProfile from './pages/MyProfile.jsx'
 import UserManagement from './pages/UserManagement.jsx'
 import Login from './pages/Login.jsx'
+import ProbationDashboard from './pages/ProbationDashboard.jsx'
+import ProbationList from './pages/ProbationList.jsx'
+import ProbationAssessmentForm from './pages/ProbationAssessmentForm.jsx'
+import ProbationDetail from './pages/ProbationDetail.jsx'
 
 // =============================================================================
 // App - the routing table, now ROLE-AWARE.
@@ -67,6 +71,20 @@ export default function App() {
         {/* Dashboard is role-aware on the inside (AdminDashboard vs
             EmployeeDashboard); one route for all three roles. */}
         <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route element={<ProtectedRoute roles={['ADMIN', 'HR']} />}>
+          <Route path="/probation" element={<ProbationDashboard />} />
+          <Route path="/probation/assessments" element={<ProbationList />} />
+        </Route>
+        <Route element={<ProtectedRoute roles={['HR']} />}>
+          <Route path="/probation/assessments/new" element={<ProbationAssessmentForm />} />
+          <Route path="/probation/assessments/:id/edit" element={<ProbationAssessmentForm />} />
+        </Route>
+        <Route path="/probation/assessments/:id" element={<ProbationDetail />} />
+        <Route path="/manager-evaluations" element={<ProbationList manager />} />
+        <Route element={<ProtectedRoute roles={['EMPLOYEE']} />}>
+          <Route path="/my-probation" element={<ProbationList own />} />
+        </Route>
 
         {/* ---- Workforce: ADMIN + HR (EMPLOYEE tokens get 403 from the
              employees list API, so the route is wrapped to match) ---- */}

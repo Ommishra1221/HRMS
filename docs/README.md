@@ -1,7 +1,12 @@
 # HRMS Learning Documentation — Start Here
 
 This folder is the documentation for the HRMS microservices project: a Spring Boot
-backend of five services, an API Gateway, a Eureka registry, and a React frontend.
+backend of five original business services plus probation-service, an API Gateway,
+a Eureka registry, and a React frontend.
+
+The [Probation Assessment Module](PROBATION_ASSESSMENT_IMPLEMENTATION.md) adds the
+HR → assigned manager → HR → ADMIN → employee workflow on port 8086. Its implementation
+guide documents APIs, permissions, migrations, tests, and startup instructions.
 
 Everything here was written **from the actual source code** (class names, endpoints,
 ports, business rules), not from memory or tutorials.

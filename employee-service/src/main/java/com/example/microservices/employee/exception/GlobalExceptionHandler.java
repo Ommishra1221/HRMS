@@ -52,17 +52,6 @@ public class GlobalExceptionHandler {
                 "Access denied: you do not have permission to perform this operation");
     }
 
-    // 403 raised by Spring Security itself, i.e. @PreAuthorize firing on a
-    // method the URL rules let through. THIS HANDLER IS NOT OPTIONAL: method-
-    // security exceptions surface inside the DispatcherServlet, so without it
-    // the catch-all below would swallow AccessDeniedException and the client
-    // would see 500 instead of 403. (Same handler auth-service carries.)
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<Map<String, Object>> handleAccessDenied(AccessDeniedException ex) {
-        return build(HttpStatus.FORBIDDEN,
-                "Access denied: you do not have permission to perform this operation");
-    }
-
     // 400 - validation failed (e.g. missing name, bad email)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleValidation(MethodArgumentNotValidException ex) {
